@@ -1,0 +1,12 @@
+
+
+# Node
+project/node_modules
+
+
+# Visual Studio Code
+project/.vscode/*
+
+
+# Angular
+project/.angular/*
