@@ -1,0 +1,30 @@
+<div class="bq-theme button-wrapper" [ngClass]="btnStyle">
+    <ng-container *ngTemplateOutlet="btnStyle == 'link' ? link : button"></ng-container>
+</div>
+
+<ng-template #link>
+    <div class="link" (click)="onButtonClick($event)" [ngClass]="size" [ngClass]="color">
+        <mat-icon inline="true" *ngIf="icon"> {{icon}} </mat-icon>
+        <span *ngIf="text"> {{text}} </span>
+    </div>
+</ng-template>
+
+<ng-template #button>
+    <button mat-raised-button [class.loading]="loading" [disabled]="disabled" type="button" color="color"
+    (click)="onButtonClick($event)" [ngClass]="size">
+        <mat-icon *ngIf="icon"> {{icon}} </mat-icon>
+        <mat-spinner *ngIf="loading" class="button-spinner"></mat-spinner>
+        <mat-icon class="dropdown-icon mr-n3" inline="true" *ngIf="matMenuTriggerFor">arrow_drop_down</mat-icon>
+        <span *ngIf="text"> {{text}} </span>
+    </button>
+</ng-template>
+
+<ng-template #btnTransparent>
+    <button class="btn-transparent" mat-raised-button [disabled]="disabled" type="button" color="color"
+    (click)="onButtonClick($event)" [ngClass]="size">
+        <mat-icon *ngIf="icon"> {{icon}} </mat-icon>
+        <mat-spinner *ngIf="loading" class="button-spinner"></mat-spinner>
+        <mat-icon class="dropdown-icon mr-n3" inline="true" *ngIf="matMenuTriggerFor">arrow_drop_down</mat-icon>
+        <span *ngIf="text"> {{text}} </span>
+    </button>
+</ng-template>

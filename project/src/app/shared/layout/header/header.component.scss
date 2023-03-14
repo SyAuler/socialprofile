@@ -1,16 +1,22 @@
+@use "../../../../assets/styles/abstracts/variables.scss" as *;
 
 .main {
-    background-color: #8a70d6;
+    background-color: $violet;
 }
 
 .navbar {
     width: 100%;
     padding: 0.5rem 1rem;
-    background-color: #8a70d6;
+    background-color: $violet;
 
     &.collapse {
-        background-color: #e9e3ff;
+        background-color: $violet-4;
     }
+}
+
+.navbar-brand,
+.nav-link {
+    color: $white;
 }
 
 .mr-auto, .mx-auto {

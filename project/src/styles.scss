@@ -1,4 +1,12 @@
+@use "./assets/styles/abstracts/variables" as *;
+
 @import "~bootstrap/dist/css/bootstrap.css";
+
+:root { 
+    --primary: $primary;
+    --success: $success;
+    --danger: $danger;
+}
 
 html {
     height: 100%;
