@@ -4,18 +4,6 @@
     height: 100%;
 }
 
-.fixed-top {
-    padding: 0px;
-}
-
-.app-header {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    float: left;
-    width: 100%;
-    z-index: 3;
-}
-
 .app-main {
     display: flex;
     width: 100%;
@@ -38,4 +26,8 @@
         flex-direction: column;
         overflow: hidden;
     }
+}
+
+.app-footer {
+    z-index: 1;
 }

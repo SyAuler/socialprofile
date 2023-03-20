@@ -1,60 +1,33 @@
-<div class="app-sidebar" [ngClass]="theme" [class.expanded]="isExpanded" [class.menu]="links"
-    [class.expandable]="expandable">
-    <div class="sidebar-collapse-container" (click)="toggleCollapse()" i18n-matTooltip [matTooltip]="tooltip"
-        [matTooltipClass]="tooltipClass" [matTooltipPosition]="tooltipPosition" [matTooltipDisabled]="fixedTooltip"
-        #sidebarTooltip="matTooltip" *ngIf="expandable">
-        <mat-icon inline="true" class="sidebar-collapse-icon">
-            {{ collapseIcon }}
-        </mat-icon>
-    </div>
-    <p>Sidebar works!</p>
-    <div *ngIf="fixedTooltip" class="fixed-tooltip">{{tooltip}}</div>
-    <div class="sidebar-menu-container">
-        <mat-nav-list>
-            <div>
-                <mat-list-item (click)="showSubmenu=false" class="sidebar-menu-item">
-                    <mat-icon mat-list-icon inline="true" class="sidebar-menu-item-icon">
-                    </mat-icon>
-                    fgdsfsddfs
-                    <span mat-line *ngIf="isExpanded" class="sidebar-menu-item-text"></span>
-                </mat-list-item>
-
-                <ng-template>
-                    <div class="text-left text-truncate pl-4 pr-3 py-3">
-                        <span
-                            class="text-muted font-weight-semibold text-uppercase text-nowrap"></span>
-                    </div>
-                    <mat-list-item class="sidebar-menu-item">
-                        <mat-icon mat-list-icon inline="true" class="sidebar-menu-item-icon">
-                        </mat-icon>
-                        <span mat-line *ngIf="isExpanded" class="sidebar-menu-item-text"></span>
-                    </mat-list-item>
-                </ng-template>
-
-                <div >
-                    <mat-list-item class="sidebar-menu-item" >
-                        <mat-icon 
-                            mat-list-icon inline="true" class="sidebar-menu-item-icon">
-                        </mat-icon>
-                        <span mat-line *ngIf="isExpanded" 
-                            class="sidebar-menu-item-text">
-                            </span>
-                        <mat-icon *ngIf="isExpanded" class="text-white">
-                            
-                        </mat-icon>
-                    </mat-list-item>
-
-                    <div class="submenu" >
-                        <mat-list-item class="sidebar-menu-item pl-4"
-                            >
-                            <span showIfTruncated mat-line *ngIf="isExpanded" class="sidebar-menu-item-text"></span>
-                        </mat-list-item>
-                    </div>
-                </div>
-            </div>
-        </mat-nav-list>
-        <div class="sidebar-content text-left">
-            <ng-content></ng-content>
+<mat-sidenav-container class="app-sidebar" autosize>
+    <mat-sidenav #sidenav class="example-sidenav" [mode]="'side'" opened="true">
+        <div class="sidebar-header d-flex justify-content-center align-items-center">
+            <div *ngIf="!isExpanded">Sociale</div>
+            <div *ngIf="isExpanded">SA</div>
         </div>
-    </div>
-</div>
+        <div (click)="toggleCollapse()">
+            <a mat-mini-fab class="sidebar-collapse-container">
+                <mat-icon inline="true" class="sidebar-collapse-icon">
+                    {{ collapseIcon }}
+                </mat-icon>
+            </a>
+        </div>
+        <div class="sidebar-menu-container">
+            <mat-nav-list class="sidebar-list">
+                <div *ngFor="let menuItem of links">
+                    <a mat-nav-list class="sidebar-menu-item" (click)="navigateTo(menuItem)" [routerLinkActive]="'is-active'">
+                        <span mat-line *ngIf="!isExpanded" class="sidebar-menu-item-text">
+                            {{ menuItem.name }}
+                        </span>
+                        <mat-icon mat-list-icon inline="true" class="sidebar-menu-item-icon">
+                            {{ menuItem.icon || '' }}
+                        </mat-icon>
+                    </a>
+                    <mat-divider></mat-divider>
+                </div>
+            </mat-nav-list>
+            <div class="sidebar-content text-left" *ngIf="!links">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </mat-sidenav>
+</mat-sidenav-container>
