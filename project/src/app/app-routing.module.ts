@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { AccountLayoutComponent } from './shared/account-layout/account-layout.component';
+import { PageLayoutComponent } from './shared/page-layout/page-layout.component';
 
 const routes: Routes = [
     {
@@ -20,13 +20,17 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'account',
-        component: AccountLayoutComponent,
+        path: '',
+        component: PageLayoutComponent,
         children: [
-            /* {
-                path: 'account',
-                loadChildren: () => import('./user/user.module').then(m => m.UserModule)
-            }, */
+            {
+                path: 'dashboard',
+                loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+            },
+            {
+                path: 'pokemon',
+                loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule)
+            },
         ]
     },
 ];

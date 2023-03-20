@@ -1,82 +1,101 @@
+@use "../../../../assets/styles/abstracts/variables.scss" as *;
+
+.mat-sidenav-container {
+    height: 90vh;
+}
+
 .app-sidebar {
-    background: #2d2d2d;
+    background: $violet-4;
     box-shadow: 4px 2px 4px 0px rgba(0, 0, 0, 0.25);
     float: left;
-    height: 100%;
-    min-height: calc(100vh - 106px);
+    height: 100vh;
     position: relative;
+    //max-width: 205px;
+    z-index: 1;
     transition: width .1s;
-    &.menu {
-        width: 76px;
-    }
-
-    :host {
-        ::ng-deep {
-            .mat-list {
-                &-text {
-                    padding-left: 0 !important;
-                }
-            }
-        }
-    }
 
     .sidebar {
+        &-header {
+            height: 75px;
+            background-color: $primary;
+            color: $white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
         &-collapse {
             &-container {
-                background-color: teal;
+                background-color: $violet-3;
+                box-shadow: 4px rgba(0, 0, 0, 0.25);
                 border-radius: 50%;
-                cursor: pointer;
+                //cursor: pointer;
                 height: 32px;
-                margin: 0em -1em 0em 0em;
+                //margin: 0em -1em 0em 0em;
                 position: absolute;
                 right: 0em;
                 text-align: center;
-                top: 2.5rem;
+                top: 3.5rem;
                 width: 32px;
-                z-index: 3;
+                z-index: 9;
+                //transform: rotate(180deg);
             }
+
             &-icon {
-                color: #ffffff;
-                font-size: 30px;
+                color: $white;
+                font-size: 35px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
         }
+
         &-menu {
             &-container {
                 position: relative;
                 text-align: center;
                 padding-top: 6em;
             }
+
             &-item {
-                width: 100%;
-                &:hover {
+                //width: 100%;
+                display: flex;
+                margin: 10px;
+                align-items: center;
+                //float: right;
+                text-decoration: none;
+                cursor: pointer;
+
+                /* &:hover {
                     box-sizing: border-box;
                     width: 100%;
 
                     span {
-                        color: teal !important;
+                        color: $violet  !important;
                     }
+
                     .mat-icon:not(.colored) {
-                        color: teal !important;
+                        color: $violet  !important;
+
                         ::ng-deep {
                             path {
-                                fill: teal !important;
+                                fill: $violet  !important;
                             }
                         }
                     }
-                }
+                } */
+
                 &-text {
-                    color: #ffffff;
+                    color: #2d2d2d;
                     font-size: 1em !important;
                     font-style: normal !important;
                     font-weight: 500 !important;
                     line-height: 1;
-                    text-align: left;
+                    text-align: right;
+                    width: 150px;
                 }
+
                 &-icon {
-                    color: #ffffff;
+                    color: #2d2d2d;
                     font-style: normal;
                     line-height: 1;
                     vertical-align: middle;
@@ -84,6 +103,8 @@
                     padding: 0.5rem;
                     display: flex;
                     align-items: center;
+                    text-align: right;
+
                     &:not(.colored) {
                         ::ng-deep {
                             path {
@@ -94,11 +115,13 @@
                 }
             }
         }
+
         &-content {
             opacity: 0;
             display: none;
         }
     }
+
     &:not(.expandable) {
         .sidebar-menu-container {
             padding-top: 1.75em;
@@ -108,13 +131,16 @@
     &.expanded {
         width: 332px;
         min-width: 255px;
+
         &.menu {
             width: 255px;
         }
+
         .sidebar-content {
             opacity: 1;
             display: inherit;
         }
+
         .submenu.expanded {
             transform: scaleY(1);
             display: block;
@@ -122,30 +148,36 @@
     }
 
     .is-active {
-        border-right: 0.25rem solid #ffffff;
+        border-right: 0.25rem solid $primary;
         box-sizing: border-box;
+
         span {
-            color: teal !important;
+            color: $primary !important;
         }
+
         mat-icon {
-            color: teal !important;
+            color: $primary !important;
+
             ::ng-deep {
                 path {
-                    fill: teal !important;
+                    fill: $primary !important;
                 }
             }
         }
-        ~ .submenu {
+
+        ~.submenu {
             border-right: 0.25rem solid #ffffff;
+
             .is-active {
                 border-right: none;
             }
         }
     }
 
-
+/* 
     &.light {
         background: #ffffff;
+
         .sidebar-menu-item-text,
         .sidebar-menu-item-icon {
             color: black;
@@ -155,26 +187,17 @@
             border-color: teal;
         }
     }
-    &.lilac {
-        background: #e9e3ff;
-        .sidebar-menu-item-text,
-        .sidebar-menu-item-icon {
-            color: black;
-        }
 
-        .is-active {
-            border-color: teal;
-        }
-    }
     &.transparent {
         background-color: rgba(black, 0.8);
-    }
+    } */
 }
 
-:host {
+/* :host {
     &[alignment="right"] {
         .app-sidebar {
             box-shadow: -4px 2px 4px 0 rgb(0 0 0 / 25%);
+
             .sidebar {
                 &-collapse {
                     &-container {
@@ -185,8 +208,8 @@
             }
         }
     }
-}
-
+} */
+/* 
 .fixed-tooltip {
     padding: 6px 20px;
     display: flex;
@@ -205,10 +228,10 @@
 }
 
 .submenu {
-	overflow-y: hidden;
-	display: none;
-	transition: transform 300ms ease;
-	transform: scaleY(0);
-	transform-origin: top;
-	padding-left: 30px;
-}
+    overflow-y: hidden;
+    display: none;
+    transition: transform 300ms ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    padding-left: 30px;
+} */
