@@ -1,20 +1,14 @@
 <mat-sidenav-container class="app-sidebar" autosize>
-    <mat-sidenav #sidenav class="example-sidenav" [mode]="'side'" opened="true">
+    <mat-sidenav #sidenav [mode]="'side'" opened="true">
         <div class="sidebar-header d-flex justify-content-center align-items-center">
             <span *ngIf="!isExpanded">Sociale</span>
             <span *ngIf="isExpanded">SA</span>
         </div>
-        <div (click)="toggleCollapse()">
-            <a mat-mini-fab class="sidebar-collapse-container">
-                <mat-icon inline="true" class="sidebar-collapse-icon">
-                    {{ collapseIcon }}
-                </mat-icon>
-            </a>
-        </div>
         <div class="sidebar-menu-container">
             <mat-nav-list class="sidebar-list">
                 <div *ngFor="let menuItem of links">
-                    <a mat-nav-list class="sidebar-menu-item" (click)="navigateTo(menuItem)" [routerLinkActive]="'is-active'">
+                    <a mat-nav-list class="sidebar-menu-item" 
+                    [routerLink]="menuItem.path" [routerLinkActive]="'is-active'">
                         <span mat-line *ngIf="!isExpanded" class="sidebar-menu-item-text">
                             {{ menuItem.name }}
                         </span>
@@ -22,7 +16,7 @@
                             {{ menuItem.icon || '' }}
                         </mat-icon>
                     </a>
-                    <mat-divider></mat-divider>
+                    <mat-divider class="sidebar-divider"></mat-divider>
                 </div>
             </mat-nav-list>
             <div class="sidebar-content text-left" *ngIf="!links">
@@ -31,3 +25,10 @@
         </div>
     </mat-sidenav>
 </mat-sidenav-container>
+<div (click)="toggleCollapse()">
+    <a mat-mini-fab class="sidebar-collapse-container">
+        <mat-icon inline="true" class="sidebar-collapse-icon">
+            {{ collapseIcon }}
+        </mat-icon>
+    </a>
+</div>

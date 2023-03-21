@@ -1,16 +1,11 @@
 @use "../../../../assets/styles/abstracts/variables.scss" as *;
 
-.mat-sidenav-container {
-    height: 90vh;
-}
-
 .app-sidebar {
     background: $violet-4;
     box-shadow: 4px 2px 4px 0px rgba(0, 0, 0, 0.25);
     float: left;
     height: 100vh;
     position: relative;
-    //max-width: 205px;
     z-index: 1;
     transition: width .1s;
 
@@ -23,51 +18,20 @@
             font-weight: 700;
         }
 
-        &-collapse {
-            &-container {
-                background-color: $violet-3;
-                box-shadow: 4px rgba(0, 0, 0, 0.25);
-                border-radius: 50%;
-                //cursor: pointer;
-                height: 32px;
-                //margin: 0em -1em 0em 0em;
-                position: absolute;
-                right: 0em;
-                text-align: center;
-                top: 3.5rem;
-                width: 32px;
-                z-index: 9;
-                //transform: rotate(180deg);
-            }
-
-            &-icon {
-                color: $white;
-                font-size: 35px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+        &-divider {
+            color: $white;
         }
 
         &-menu {
-            &-container {
-                position: relative;
-                text-align: center;
-                padding-top: 6em;
-            }
-
             &-item {
-                //width: 100%;
                 display: flex;
-                margin: 10px;
+                padding: 15px 0;
                 align-items: center;
-                //float: right;
                 text-decoration: none;
                 cursor: pointer;
 
-                /* &:hover {
+                &:hover {
                     box-sizing: border-box;
-                    width: 100%;
 
                     span {
                         color: $violet  !important;
@@ -75,14 +39,8 @@
 
                     .mat-icon:not(.colored) {
                         color: $violet  !important;
-
-                        ::ng-deep {
-                            path {
-                                fill: $violet  !important;
-                            }
-                        }
                     }
-                } */
+                }
 
                 &-text {
                     color: #2d2d2d;
@@ -91,59 +49,27 @@
                     font-weight: 500 !important;
                     line-height: 1;
                     text-align: right;
-                    width: 150px;
+                    width: 170px;
                 }
 
                 &-icon {
                     color: #2d2d2d;
-                    font-style: normal;
                     line-height: 1;
                     vertical-align: middle;
                     font-size: 24px !important;
                     padding: 0.5rem;
+                    padding: 0 15px;
                     display: flex;
                     align-items: center;
                     text-align: right;
-
-                    &:not(.colored) {
-                        ::ng-deep {
-                            path {
-                                fill: white !important;
-                            }
-                        }
-                    }
                 }
             }
-        }
-
-        &-content {
-            opacity: 0;
-            display: none;
         }
     }
 
     &:not(.expandable) {
         .sidebar-menu-container {
             padding-top: 1.75em;
-        }
-    }
-
-    &.expanded {
-        width: 332px;
-        min-width: 255px;
-
-        &.menu {
-            width: 255px;
-        }
-
-        .sidebar-content {
-            opacity: 1;
-            display: inherit;
-        }
-
-        .submenu.expanded {
-            transform: scaleY(1);
-            display: block;
         }
     }
 
@@ -157,81 +83,25 @@
 
         mat-icon {
             color: $primary !important;
-
-            ::ng-deep {
-                path {
-                    fill: $primary !important;
-                }
-            }
-        }
-
-        ~.submenu {
-            border-right: 0.25rem solid #ffffff;
-
-            .is-active {
-                border-right: none;
-            }
         }
     }
-
-/* 
-    &.light {
-        background: #ffffff;
-
-        .sidebar-menu-item-text,
-        .sidebar-menu-item-icon {
-            color: black;
-        }
-
-        .is-active {
-            border-color: teal;
-        }
-    }
-
-    &.transparent {
-        background-color: rgba(black, 0.8);
-    } */
 }
 
-/* :host {
-    &[alignment="right"] {
-        .app-sidebar {
-            box-shadow: -4px 2px 4px 0 rgb(0 0 0 / 25%);
-
-            .sidebar {
-                &-collapse {
-                    &-container {
-                        left: -1em;
-                        transform: rotate(180deg);
-                    }
-                }
-            }
-        }
-    }
-} */
-/* 
-.fixed-tooltip {
-    padding: 6px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.mdc-fab {
+    background-color: $dark;
+    color: $white;
+    font-size: 24px;
+    box-shadow: 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    height: 32px;
+    margin: 0em 0em 0em -0.75em;
     position: absolute;
-    top: 2.5rem;
-    left: calc(100% + 30px);
-    background: teal;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    white-space: nowrap;
-    font-weight: 600;
-    font-size: 12px;
+    text-align: center;
+    top: 3.5rem;
+    width: 32px;
+    z-index: 10;
 }
 
-.submenu {
-    overflow-y: hidden;
-    display: none;
-    transition: transform 300ms ease;
-    transform: scaleY(0);
-    transform-origin: top;
-    padding-left: 30px;
-} */
+.mat-icon.mat-icon-inline {
+    line-height: 2rem;
+}
