@@ -27,4 +27,4 @@ ENV APP_SERVER_ROOT /app
 
 COPY --from=build $APP_SERVER_ROOT/nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build $APP_SERVER_ROOT/dist/biomequality-frontend /usr/share/nginx/html
+COPY --from=build $APP_SERVER_ROOT/dist/socialprofile /usr/share/nginx/html
