@@ -17,7 +17,7 @@ COPY [ \
     "./" \
     ]
 
-RUN ng build --localize --configuration production --aot
+RUN ng build
 
 EXPOSE 8080
 
