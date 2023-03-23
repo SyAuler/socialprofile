@@ -36,8 +36,4 @@ export class SidebarComponent implements OnInit {
         return this.isExpanded = !this.isExpanded;
     }
 
-    navigateTo(item:any) {
-        this.router.navigateByUrl(item.path);
-    }
-
 }
