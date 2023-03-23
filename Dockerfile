@@ -6,7 +6,7 @@ WORKDIR $APP_SERVER_ROOT
 
 RUN apt-get update && apt-get install python make -y
 
-COPY ./angular/package*.json ./
+COPY ./project/package*.json ./
 
 RUN npm install -g @angular/cli
 
