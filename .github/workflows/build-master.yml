@@ -1,0 +1,23 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_NAME: "cvfuhr/social-base"
+  REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build and push image
+        run: |
+          docker build -t go-api .
+          docker tag go-api:latest ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
+          docker push  ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
