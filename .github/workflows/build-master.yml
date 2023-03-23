@@ -18,6 +18,6 @@ jobs:
 
       - name: Build and push image
         run: |
-          docker build -t go-api .
-          docker tag go-api:latest ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
+          docker build -t social-base .
+          docker tag social-base:latest ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
           docker push  ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
