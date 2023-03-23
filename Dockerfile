@@ -19,7 +19,7 @@ COPY [ \
 
 RUN ng build
 
-EXPOSE 8080
+EXPOSE 80
 
 FROM nginx:1.17.1-alpine
 
