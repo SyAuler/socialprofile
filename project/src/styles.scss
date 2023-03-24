@@ -2,6 +2,12 @@
 
 @import "~bootstrap/dist/css/bootstrap.css";
 
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.mat-theme-loaded-marker {
+    display: none;
+}
+
 :root { 
     --primary: $primary;
     --success: $success;

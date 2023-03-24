@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { SidebarComponent } from './sidebar.component';
-import { SharedModule } from '../../shared.module';
+import { SharedModule } from '../../../shared.module';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
