@@ -25,7 +25,7 @@ const MAT_MODULES = [
         PokemonComponent,
     ],
     imports: [
-    CommonModule,
+        CommonModule,
         SharedModule,
         PokemonRoutingModule,
         RouterModule,

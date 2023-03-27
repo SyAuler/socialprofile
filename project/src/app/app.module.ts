@@ -22,6 +22,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { PokeApiService } from './core/services/poke-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MarvelModule } from './marvel/marvel.module';
+import { MarvelApiService } from './core/services/marvel-api.service';
 
 const MAT_MODULES = [
     MatMenuModule,
@@ -51,9 +53,11 @@ const MAT_MODULES = [
         SidebarModule,
         DashboardModule,
         PokemonModule,
+        MarvelModule,
     ],
     providers: [
         PokeApiService,
+        MarvelApiService,
     ],
     bootstrap: [AppComponent]
 })

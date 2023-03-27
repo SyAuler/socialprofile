@@ -31,6 +31,10 @@ const routes: Routes = [
                 path: 'pokemon',
                 loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule)
             },
+            {
+                path: 'marvel',
+                loadChildren: () => import('./marvel/marvel.module').then(m => m.MarvelModule)
+            },
         ]
     },
 ];
