@@ -21,7 +21,7 @@ export class PokemonComponent implements OnInit {
     pokemonList: any;
     berryList: any;
     dataSource = new MatTableDataSource();
-    displayedColumns: string[] = ['name', 'url'];
+    displayedColumns: string[] = ['name', 'url', 'actions'];
     listLoading: boolean = false;
 
     pageSize = 15;
@@ -38,36 +38,34 @@ export class PokemonComponent implements OnInit {
     }
 
     private initDataSource(data: Array<any>) {
-        this.listLoading = true;
         this.dataSource = null as any;
         this.dataSource = new MatTableDataSource(data);
-        this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        this.listLoading = false;
     }
-    
-    setPage(event?:any) {
-        this.pageIndex = event.pageIndex;
+
+    setPage(event?: any) {
         this.pageSize = event.pageSize;
         this.pageLength = event.length;
         const params = {
-            offset: this.pageIndex * this.pageSize,
+            offset: this.paginator.pageIndex * this.paginator.pageSize,
             limit: this.pageSize,
-        }
-        this.getPokemon(params)
+        };
+        this.getPokemon(params);
     }
 
     getPokemon(value?:any) {
+        this.listLoading = true;
         const params = {
-            limit: this.pageSize,
-            offset: this.pageIndex * this.pageSize,
+            offset: this.paginator.pageIndex * this.paginator.pageSize,
+            limit: this.paginator.pageSize ?? this.pageSize,
             ...value
         }
 
         this.pokemonService.getPokemon(params).subscribe(res => {
             this.pokemonList = res.results;
             this.pageLength = res.count;
-            this.initDataSource(this.pokemonList)
+            this.initDataSource(this.pokemonList);
+            this.listLoading = false;
         })
     }
 

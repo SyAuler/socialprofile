@@ -27,6 +27,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -52,6 +53,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
+import { ShowIfBreakDirective } from './directives/show-if-break.directive';
 
 const MAT_MODULES = [
     A11yModule,
@@ -76,6 +78,7 @@ const MAT_MODULES = [
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
+    FlexLayoutModule,
     MatFormFieldModule,
     MatGridListModule,
     MatIconModule,
@@ -110,6 +113,7 @@ const MAT_MODULES = [
 @NgModule({
     declarations: [
         ButtonComponent,
+        ShowIfBreakDirective,
     ],
     imports: [
         CommonModule,
@@ -118,6 +122,7 @@ const MAT_MODULES = [
     ],
     exports: [
         ButtonComponent,
+        ShowIfBreakDirective,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -1,1 +1,69 @@
-<p>marvel works!</p>
+<div>
+    <div></div>
+    <div>
+        <div fxFlex class="mat-elevation-z8">
+            <div *ngIf="listLoading"> 
+              <br><br>
+              <mat-spinner color="primary" class="center-block"></mat-spinner>
+            </div>
+            <div class="table-wrapper">
+              <mat-table *ngIf="!listLoading" [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="id">
+                  <mat-header-cell fxFlex="10" *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                  <mat-cell fxFlex="10" *matCellDef="let row">{{row.id}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="title">
+                  <mat-header-cell fxFlex="20" *matHeaderCellDef mat-sort-header>Título</mat-header-cell>
+                  <mat-cell fxFlex="20" *matCellDef="let row"> {{ row.title }} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="isbn">
+                  <mat-header-cell  fxFlex="10" *matHeaderCellDef mat-sort-header>ISBN</mat-header-cell>
+                  <mat-cell fxFlex="10" *matCellDef="let row" showIfTruncatedText> {{ row.isbn }} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                  <mat-header-cell  fxFlex="25" *matHeaderCellDef mat-sort-header>Descrição</mat-header-cell>
+                  <mat-cell fxFlex="25" *matCellDef="let row" showIfTruncatedText> {{ row.description }} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="modified">
+                  <mat-header-cell  fxFlex="25" *matHeaderCellDef mat-sort-header>Atualização</mat-header-cell>
+                  <mat-cell fxFlex="25" *matCellDef="let row" showIfTruncatedText> {{ row.modified }} <!-- | date: 'shortDate'  --> </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell fxFlex="15" fxLayoutAlign="center center" *matHeaderCellDef mat-sort-header>
+                    <ng-container>
+                        Ações
+                    </ng-container>
+                  </mat-header-cell>
+                  <mat-cell fxFlex="15" fxLayoutGap="2px" fxLayoutAlign="center" *matCellDef="let row">
+                    <mat-cell >
+                        <a class="btn-action"
+                        [routerLink]="['/marvel/'+row.id]"
+                        matTooltip="VISUALIZAR"
+                        class="dashboard-icon-anchor">
+                        <mat-icon>visibility</mat-icon>
+                        </a>
+                    </mat-cell>
+                  </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+              <div *ngIf="!listLoading && (!dataSource || dataSource && dataSource.filteredData.length === 0)">
+                <p class="text-center">
+                  <em>
+                    Nenhum item encontrado.
+                  </em>
+                </p>
+              </div> 
+            </div>
+            <mat-paginator #paginator
+            [pageIndex]="pageIndex"
+            [pageSize]="pageSize"
+            [length]="pageLength"
+            [pageSizeOptions]="pageSizeOptions"
+            (page)="setPage($event)"
+            showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

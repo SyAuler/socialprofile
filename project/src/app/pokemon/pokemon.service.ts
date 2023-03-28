@@ -12,7 +12,6 @@ export class PokemonService {
     ) { }
 
     getPokemon(params?: any): Observable<any> {
-        console.log('params', params)
         return this.pokeApiService.get('pokemon', null, params);
     }
 
