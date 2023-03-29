@@ -4,11 +4,10 @@ import * as CryptoJS from 'crypto-js';
 import { Observable, of } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { environment as envProd } from "src/environments/environment.prod";
 
 const MARVEL_URL = environment.marvel;
-const marvelPrivateKey = envProd.marvelPrivateKey
-const marvelPublicKey = envProd.marvelPublicKey
+const marvelPrivateKey = environment.marvelPrivateKey
+const marvelPublicKey = environment.marvelPublicKey
 const timestamp = Date.now();
 
 interface RequestParams {

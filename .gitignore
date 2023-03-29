@@ -10,3 +10,7 @@ project/.vscode/*
 
 # Angular
 project/.angular/*
+
+
+# Secret Keys
+environment.secret.ts
