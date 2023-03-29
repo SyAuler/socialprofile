@@ -4,6 +4,16 @@
     background-color: $violet;
 }
 
+.header-logo {
+    width: 8%;
+}
+
+.header-logo-image {
+    cursor: pointer;
+    margin: 0.5em 2.5em 0.5em 2em;
+    max-height: 2.5rem;
+}
+
 .navbar {
     width: 100%;
     padding: 0.5rem 1rem;
