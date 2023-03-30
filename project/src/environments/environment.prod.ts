@@ -1,6 +1,7 @@
 import { environment as base } from './environment';
 
 export const environment = {
+    ...base,
     production: true,
     marvelPrivateKey: process.env.MARVEL_PRIVATE_KEY,
     marvelPublicKey: process.env.MARVEL_PUBLIC_KEY,
