@@ -12,6 +12,9 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    env:
+      MARVEL_PRIVATE_KEY: ${{ secrets.MARVEL_PRIVATE_KEY }}
+      MARVEL_PUBLIC_KEY: ${{ secrets.MARVEL_PUBLIC_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
