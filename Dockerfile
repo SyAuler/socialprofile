@@ -17,7 +17,7 @@ COPY [ \
     "./" \
     ]
 
-RUN ng build --configuration production
+RUN ng build --prod
 
 EXPOSE 80
 
