@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PageLayoutComponent } from './shared/page-layout/page-layout.component';
+import { PageLayoutComponent } from './shared/components/page-layout/page-layout.component';
 
 const routes: Routes = [
     {
@@ -30,6 +30,10 @@ const routes: Routes = [
             {
                 path: 'pokemon',
                 loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule)
+            },
+            {
+                path: 'marvel',
+                loadChildren: () => import('./marvel/marvel.module').then(m => m.MarvelModule)
             },
         ]
     },

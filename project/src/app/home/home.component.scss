@@ -1,18 +1,34 @@
+@use "../../../src/assets/styles/abstracts/variables.scss" as *;
+
 .fixed-top {
     padding: 0px;
 }
 
 .home-content {
     margin: 0;
-    padding-top: 3.5rem;
+    padding-top: 4.5rem;
 }
 
 .carousel {
     height: 500px;
 }
 
-.carousel-inner {
-    height: 500px;
+.carousel img {
+    max-width: 100%;
+    max-height: 500px;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-caption:nth-child(2) {
+    width: 100%;
+    left: 0;
+    background-color: rgba(45, 45, 45, 0.4);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
 }
 
 .carousel-item {

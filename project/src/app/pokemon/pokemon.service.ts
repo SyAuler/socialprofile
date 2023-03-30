@@ -1,12 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { PokeApiService } from '../core/services/poke-api.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PokemonService {
 
-    constructor() { }
+    constructor(
+        private pokeApiService: PokeApiService,
+    ) { }
 
-    //https://pokeapi.co/docs/v2
-    //https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0
+    getPokemon(params?: any): Observable<any> {
+        return this.pokeApiService.get('pokemon', null, params);
+    }
+
+    getBerry(id?: number): Observable<any> {
+        return this.pokeApiService.get(`berry/${id}/`);
+    }
+
 }

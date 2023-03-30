@@ -11,15 +11,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { PageLayoutComponent } from './shared/page-layout/page-layout.component';
-import { HeaderComponent } from './shared/layout/header/header.component';
-import { FooterComponent } from './shared/layout/footer/footer.component';
-import { SidebarModule } from './shared/layout/sidebar/sidebar.module';
+import { PageLayoutComponent } from './shared/components/page-layout/page-layout.component';
+import { HeaderComponent } from './shared/components/layout/header/header.component';
+import { FooterComponent } from './shared/components/layout/footer/footer.component';
+import { SidebarModule } from './shared/components/layout/sidebar/sidebar.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PokemonModule } from './pokemon/pokemon.module';
+import { PokeApiService } from './core/services/poke-api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { MarvelModule } from './marvel/marvel.module';
+import { MarvelApiService } from './core/services/marvel-api.service';
 
 const MAT_MODULES = [
     MatMenuModule,
@@ -41,6 +45,7 @@ const MAT_MODULES = [
         CommonModule,
         AppRoutingModule,
         ...MAT_MODULES,
+        HttpClientModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
@@ -48,8 +53,12 @@ const MAT_MODULES = [
         SidebarModule,
         DashboardModule,
         PokemonModule,
+        MarvelModule,
     ],
-    providers: [],
+    providers: [
+        PokeApiService,
+        MarvelApiService,
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
