@@ -54,6 +54,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
 import { ShowIfBreakDirective } from './directives/show-if-break.directive';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 const MAT_MODULES = [
     A11yModule,
@@ -114,6 +115,7 @@ const MAT_MODULES = [
     declarations: [
         ButtonComponent,
         ShowIfBreakDirective,
+        CarouselComponent,
     ],
     imports: [
         CommonModule,
@@ -123,6 +125,7 @@ const MAT_MODULES = [
     exports: [
         ButtonComponent,
         ShowIfBreakDirective,
+        CarouselComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
