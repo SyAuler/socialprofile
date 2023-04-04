@@ -4,12 +4,19 @@
     padding: 0px;
 }
 
+.container-sm,
 .container {
     margin: 0;
-    padding: 4.5em 0 4em;
-    height: 100vh;
+    padding: 4.5em 0 0;
+    height: 95vh;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .content {
     padding-bottom: 4em;
+}
+
+.social {
+    background-color: $violet-5;
 }

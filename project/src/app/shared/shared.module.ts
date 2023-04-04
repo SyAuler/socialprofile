@@ -55,6 +55,7 @@ import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
 import { ShowIfBreakDirective } from './directives/show-if-break.directive';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 const MAT_MODULES = [
     A11yModule,
@@ -116,6 +117,7 @@ const MAT_MODULES = [
         ButtonComponent,
         ShowIfBreakDirective,
         CarouselComponent,
+        BannerComponent,
     ],
     imports: [
         CommonModule,
@@ -126,6 +128,7 @@ const MAT_MODULES = [
         ButtonComponent,
         ShowIfBreakDirective,
         CarouselComponent,
+        BannerComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
