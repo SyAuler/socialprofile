@@ -4,33 +4,19 @@
     padding: 0px;
 }
 
-.home-content {
+.container-sm,
+.container {
     margin: 0;
-    padding-top: 4.5rem;
-}
-
-.carousel {
-    height: 500px;
-}
-
-.carousel img {
+    padding: 4.5em 0 0;
+    height: 95vh;
     max-width: 100%;
-    max-height: 500px;
-    height: auto;
-    object-fit: cover;
+    overflow: hidden;
 }
 
-.carousel-caption:nth-child(2) {
-    width: 100%;
-    left: 0;
-    background-color: rgba(45, 45, 45, 0.4);
+.content {
+    padding-bottom: 4em;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    width: 10%;
-}
-
-.carousel-item {
-    height: 500px;
+.social {
+    background-color: $violet-5;
 }
