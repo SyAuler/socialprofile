@@ -8,7 +8,7 @@
 
 .sand {
     position: absolute;
-    bottom: 27vh;
+    bottom: 0;
     width: 100%;
     height: 9vw;
     min-height: 8rem;
@@ -17,8 +17,8 @@
 
 .ternary-system {
     position: absolute;
-    left: 80vw;
-    max-height: 600px;
+    bottom:0;
+    left: 82vw;
     transform: translateX(-100%);
 }
 
@@ -31,7 +31,7 @@
 .sun.photo {
     position: absolute;
     top: 0.5vw;
-    left: 600px;
+    left: 60vh;
     width: 15vw;
     max-width: 15rem;
     height: 15vw;
@@ -48,7 +48,7 @@
 
 .sun.secondary {
     position: absolute;
-    top: 3vw;
+    transform: translateY(40%);
     left: 8vw;
     width: 16vw;
     max-width: 6rem;
@@ -68,7 +68,7 @@
 
 .sun.quaternary {
     position: absolute;
-    top: 30vw;
+    top: 26vw;
     left: 4vw;
     width: 4rem;
     height: 4rem;
@@ -76,12 +76,11 @@
 
 .sun.quinternary {
     position: absolute;
-    top: 22vw;
-    left: 9vw;
+    top: 20vw;
+    left: 8vw;
     width: 2rem;
     height: 2rem;
 }
-
 
 .text {
     position: absolute;
@@ -90,6 +89,13 @@
     bottom: 290px;
     transform: translateY(50%);
     font-size: 2rem;
+}
+
+.text-banner {
+    color: #b393d3;
+    text-align: justify;
+    padding: 0.25em;
+    font-size: larger;
 }
 
 .title {
@@ -134,7 +140,7 @@
 .dev {
     position: absolute;    
     right: 45em;
-    bottom: 60vh;
+    bottom: 35vh;
     font-size: 20px;
 }
 

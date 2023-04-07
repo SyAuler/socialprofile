@@ -11,6 +11,10 @@
     height: 95vh;
     max-width: 100%;
     overflow: hidden;
+
+    .row {
+        position: relative;
+    }
 }
 
 .content {
@@ -19,4 +23,5 @@
 
 .social {
     background-color: $violet-5;
+    z-index: 10;
 }
