@@ -1,0 +1,59 @@
+
+@use "../../../../assets/styles/abstracts/variables.scss" as *;
+
+.content {
+    margin: auto;
+    text-align: end;
+    position: relative;
+
+    &-img {
+        width: 20vw;
+        height: 20vw;
+    }
+    
+    &-text {
+        text-align: justify;
+    }
+}
+
+.circle {
+    position: relative;
+    border-radius: 50%;
+    background: $violet-4;
+
+    &.primary {
+        position: absolute;
+        top: 20vw;
+        left: 6vw;
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &.secondary {
+        position: absolute;
+        top: 13vw;
+        left: 5vw;
+        width: 6vw;
+        height: 6vw;
+    }
+
+    &.ternary {
+        position: absolute;
+        background: none;
+        border: solid 3px #ccaaff;
+        top: 20vw;
+        left: 12vw;
+        width: 4vw;
+        height: 4vw;
+    }
+
+    &.quaternary {
+        position: absolute;
+        background: none;
+        border: solid 3px #ccaaff;
+        top: 8vw;
+        left: 8vw;
+        width: 2vw;
+        height: 2vw;
+    }
+}
