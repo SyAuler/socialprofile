@@ -22,6 +22,14 @@
 }
 
 .social {
-    background-color: $violet-5;
-    z-index: 10;
+    background-color: $violet-4;
+
+    &-text {
+        color: $white;
+    }
+
+    &-icon {
+       color: $white;
+       padding: 1.5em;
+    }
 }

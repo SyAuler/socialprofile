@@ -57,6 +57,8 @@ import { ShowIfBreakDirective } from './directives/show-if-break.directive';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const MAT_MODULES = [
     A11yModule,
@@ -120,11 +122,13 @@ const MAT_MODULES = [
         CarouselComponent,
         BannerComponent,
         AboutMeComponent,
+        SkillsComponent,
     ],
     imports: [
         CommonModule,
         ...MAT_MODULES,
         RouterModule,
+        FontAwesomeModule,
     ],
     exports: [
         ButtonComponent,
@@ -132,6 +136,7 @@ const MAT_MODULES = [
         CarouselComponent,
         BannerComponent,
         AboutMeComponent,
+        SkillsComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
