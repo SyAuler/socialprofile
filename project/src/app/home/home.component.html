@@ -6,21 +6,27 @@
             <div class="row h-75">
                 <app-banner></app-banner>
             </div>
-            <div class="row h-25 social">
+            <div class="row h-25 d-flex social align-content-center">                
+                <span class="social-text d-flex justify-content-center">
+                    Você pode me encontrar em:
+                </span>
                 <div class="col d-flex justify-content-center">
-                    <a href="https://www.linkedin.com/in/simone-auler/" target="_blank">Linkedin</a>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <a href="https://github.com/SyAuler" target="_blank">Github</a>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <a href="https://api.whatsapp.com/send/?phone=5545999771075&text=Ol%C3%A1+Simone&type=phone_number&app_absent=0"
-                        target="_blank">Whatsapp</a>
+                    <a class="social-icon" href="https://www.linkedin.com/in/simone-auler/" target="_blank">
+                        <fa-icon [icon]="['fab', 'linkedin']" [size]="'2x'"></fa-icon>
+                    </a>
+                    <a class="social-icon" href="https://github.com/SyAuler" target="_blank">
+                        <fa-icon [icon]="['fab', 'github']" [size]="'2x'"></fa-icon>
+                    </a>
+                    <a class="social-icon" href="https://api.whatsapp.com/send/?phone=5545999771075&text=Ol%C3%A1+Simone&type=phone_number&app_absent=0"
+                    target="_blank">
+                    <fa-icon [icon]="['fab', 'whatsapp']" [size]="'2x'"></fa-icon></a>
                 </div>
             </div>
         </div>
     </div>
     <div class="content">
+        <app-about-me></app-about-me>
+        <app-skills></app-skills>
         <app-carousel></app-carousel>
     </div>
 

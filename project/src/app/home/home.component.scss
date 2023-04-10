@@ -11,6 +11,10 @@
     height: 95vh;
     max-width: 100%;
     overflow: hidden;
+
+    .row {
+        position: relative;
+    }
 }
 
 .content {
@@ -18,5 +22,14 @@
 }
 
 .social {
-    background-color: $violet-5;
+    background-color: $violet-4;
+
+    &-text {
+        color: $white;
+    }
+
+    &-icon {
+       color: $white;
+       padding: 1.5em;
+    }
 }
