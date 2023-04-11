@@ -7,41 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-    textHtml: string = `
-    <div class="d-flex justify-content-center">
-        <app-header></app-header>
-        <div class="container">
-            <app-banner></app-banner>
-        </div>
-        <app-footer theme="dark"></app-footer>
-    </div>`
-    textCSS: string = `.title {
-        text-align: center;
-        font-size: 1em;
-        font-family: 'Roboto';
-        font-weight: 300;
-        text-transform: uppercase;
-        line-height: 1.3em;
-        margin: 0;
-        color: white;
-    }`
-    textTypescript: string = `
-        @Input() text!: string;
-        constructor() { }
-        ngOnInit(): void {
-            this.text = this.text;
-        }
-        onButtonClick(event: any) {
-            this.onClick.emit(event)
-    }`
-
-    texts: Array<string> = [
-        "Lorem ipsum dolor sit amet",
-        "consectetur adipiscing elit",
-        "sed do eiusmod tempor",
-        "Lorem ipsum dolor sit amet",
-        "consectetur adipiscing elit",
-        "sed do eiusmod tempor",
+    codeText: Array<string> = [
+        'Lorem ipsum dolor sit amet',
+        'class="d-flex justify-content-center"',
+        'text-align: center;',
+        '@Input() text!: string;',
+        '<div class="container">',
+        'font-family: "Roboto";',
+        'constructor() { }',
+        '<app-header></app-header>',
+        'line-height: 1.3em;',
+        'this.text = this.text;',
+        '<app-footer theme="dark"></app-footer>',
+        'ngOnInit(): void { }',
+        '<div class="row h-75"></div>',
+        'transform: translateX(3.2em);',
+        'this.onClick.emit(event)',
+        'Math.round(percentage * 10) / 10;',
+        'animation: draw 15s ease-in-out infinite;',
+        '<a href=""></a>',
+        'background: $primary;',
+        '*ngFor="let item of products"',
+        '<ng-template #name let-row="row"></ng-template>',
+        '$dimensions: calc(100% + 20px);',
+        'loading = new BehaviorSubject<boolean>(true);',
+        '<mat-select formControlName="price"></mat-select>',
+        'this.fb.group({});',
+        'this.service.getProducts()',
+        '<mat-card-title></mat-card-title>',
+        'border-radius: 50%;',
+        '*ngIf="products.length"',
+        'this.dialog.open(ConfirmDialog, {})',
     ];
 
     randomString!: string;
@@ -49,9 +45,6 @@ export class BannerComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        const randomIndex = Math.floor(Math.random() * this.texts.length);
-        this.randomString = this.texts[randomIndex];
-        console.log(this.randomString);
 
     }
 
