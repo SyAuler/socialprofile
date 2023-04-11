@@ -1,27 +1,24 @@
 <div class="animation">
     <div class="ternary-system">
-        <div class="sun photo"></div>
-        <div class="sun primary"></div>
-        <div class="sun secondary"></div>
-        <div class="sun ternary">
+        <div class="bubble photo"></div>
+        <div class="bubble primary"></div>
+        <div class="bubble secondary"></div>
+        <div class="bubble ternary">            
             <div class="text">
+                <p class="developer">Simone Auler</p>
                 <h1 class="title"><strong>Desenvolvedora</strong><em>Frontend</em></h1>
-                <p class="subtitle">Simone Auler</p>
+                <p class="subtitle">Angular</p>
             </div>
         </div>
-        <div class="sun quaternary "></div>
-        <div class="sun quinternary "></div>
+        <div class="bubble quaternary "></div>
+        <div class="bubble quinternary "></div>
     </div>
-    <div class="sand d-flex">
-        <div class="col-4 text-banner">
-            <span>{{ textHtml }}</span>
-        </div>
-        <div class="col-4 text-banner">
-            <span>{{ textCSS }}</span>
-        </div>
-        <div class="col-4 text-banner">
-            <span>{{ textTypescript }}</span>
-        </div>
+    <div class="col banner d-flex">
+        <ng-container *ngFor="let item of codeText; let i = index">
+            <div class="banner-text-{{i}}">
+                <span>{{ item }}</span>
+            </div>
+        </ng-container>
     </div>
 
     <div class="dev">
