@@ -132,6 +132,7 @@
             position: absolute;
             left: 84%;
             top: 4em;
+            white-space: nowrap;
         }
 
         &-19 {
@@ -212,7 +213,7 @@
 .ternary-system {
     position: absolute;
     bottom:0;
-    left: 82vw;
+    left: 75vw;
     transform: translateX(-100%);
 }
 
@@ -262,7 +263,7 @@
 
 .bubble.quaternary {
     position: absolute;
-    top: 26vw;
+    top: 23vw;
     left: 4vw;
     width: 4rem;
     height: 4rem;
@@ -334,9 +335,9 @@
 
 .dev {
     position: absolute;
-    right: 45em;
+    right: 62vw;
     bottom: 35vh;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .arrow {
@@ -344,6 +345,7 @@
     opacity: 0.5;
     position: absolute;
     left: -5em;
+    z-index: -1;
 }
 
 .geo-arrow {
@@ -429,5 +431,79 @@
 
     100% {
         transform: translateY(0);
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .ternary-system {
+        bottom: 0vw;
+    }
+
+    .text {
+        bottom: 240px;
+        right: 12vh;
+        font-size: 2.3vw;
+    }
+
+    .developer {
+        bottom: 9.5vw;
+    }
+
+    .dev {
+        right: 62vw;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .ternary-system {
+        bottom: 0vw;
+    }
+
+    .text {
+        bottom: 240px;
+        right: 12vh;
+        font-size: 2.3vw;
+    }
+
+    .developer {
+        bottom: 9.5vw;
+    }
+
+    .dev {
+        right: 62vw;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ternary-system {
+        bottom: 12vw;
+    }
+
+    .text {
+        bottom: 130px;
+        right: 4.5vh;
+        font-size: 2.5vw;
+    }
+
+    .developer {
+        bottom: 8.5vw;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .ternary-system {
+        bottom: 18vw;
+    }
+
+    .text {
+        bottom: 100px;
+        right: 14vw;
+        font-size: 0.5em;
+    }
+
+    .developer {
+        bottom: 20px;
     }
 }
