@@ -4,8 +4,12 @@
 .content-skills {
     padding: 1.5em 0;
     height: 50vh;
-    min-height: 460px;
+    height: calc(100vh - 136px);
     background-color: $violet-4;
+
+    &-block {
+        padding: 0 3%;
+    }
 
     &-title {
         padding: 10px 0;
@@ -14,7 +18,7 @@
     }
 
     &-text {
-        text-align: center;
+        text-align: justify;
         color: $white;
     }
 
@@ -30,8 +34,19 @@
 
 .col-2 {
     text-align: center;
+    width: 10%;
 }
 
 fa-icon, p {
     color: $white;
+}
+
+ul {
+    width: 33%;
+
+    li {
+        list-style-type: none;
+        line-height: 2em;
+        color: $white;
+    }
 }
