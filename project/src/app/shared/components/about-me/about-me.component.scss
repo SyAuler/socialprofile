@@ -3,6 +3,7 @@
 
 .about-wrapper {
     padding: 4em 0;
+    height: calc(100vh - 136px);
 
     &-text {
         text-align: center;
@@ -53,7 +54,7 @@
     &.ternary {
         position: absolute;
         background: none;
-        border: solid 3px #ccaaff;
+        border: solid 3px $violet-4;
         top: 20vw;
         left: 12vw;
         width: 4vw;
@@ -63,10 +64,27 @@
     &.quaternary {
         position: absolute;
         background: none;
-        border: solid 3px #ccaaff;
+        border: solid 3px $violet-4;
         top: 8vw;
         left: 8vw;
         width: 2vw;
         height: 2vw;
+    }
+}
+
+li {
+    list-style-type: none;
+    line-height: 2em;
+}
+
+.logo {
+    width: 10vh;
+
+    &-unioeste {
+        height: 6.5vh;
+    }
+
+    &-univali {
+        height: 7vh;
     }
 }

@@ -6,213 +6,9 @@
     overflow: hidden;
 }
 
-.banner {
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    height: 9rem;
-    min-height: 8rem;
-    background: $primary;
-    color: $violet-4;
-    text-align: justify;
-    padding: 0.25em;
-    font-size: larger;
-
-    &-text {
-        &-0 {
-            position: absolute;
-            left: 32%;
-            top: 1.5em;
-        }
-
-        &-1 {
-            position: absolute;
-            left: 60%;
-            top: -0.25em;
-        }
-
-        &-2 {
-            position: absolute;
-            left: 18%;
-            top: 4.75em;
-        }
-
-        &-3 {
-            position: absolute;
-            left: 48%;
-            top: 5.75em;
-        }
-
-        &-4 {
-            position: absolute;
-            left: 0.5%;
-            top: 4.5em;
-        }
-
-        &-5 {
-            position: absolute;
-            left: 70%;
-            top: 2em;
-        }
-
-        &-6 {
-            position: absolute;
-            left: 50%;
-            top: -0.5em;
-        }
-
-        &-7 {
-            position: absolute;
-            left: 15%;
-            top: 1em;
-        }
-
-        &-8 {
-            position: absolute;
-            left: 61%;
-            top: 5.5em;
-        }
-
-        &-9 {
-            position: absolute;
-            left: 13%;
-            top: 3.25em;
-        }
-
-        &-10 {
-            position: absolute;
-            left: 22%;
-            top: 6em;
-        }
-
-        &-11 {
-            position: absolute;
-            left: 27%;
-            top: 0em;
-        }
-
-        &-12 {
-            position: absolute;
-            left: 90%;
-            top: 3em;
-            white-space: nowrap;
-        }
-
-        &-13 {
-            position: absolute;
-            left: 4%;
-            top: 5.75em;
-        }
-
-        &-14 {
-            position: absolute;
-            left: 10%;
-            top: -0.25em;
-        }
-
-        &-15 {
-            position: absolute;
-            left: 64%;
-            top: 4.5em;
-        }
-
-        &-16 {
-            position: absolute;
-            left: 34%;
-            top: 4.5em;
-        }
-
-        &-17 {
-            position: absolute;
-            left: 45%;
-            top: 2.5em;
-        }
-
-        &-18 {
-            position: absolute;
-            left: 84%;
-            top: 4em;
-            white-space: nowrap;
-        }
-
-        &-19 {
-            position: absolute;
-            left: 40%;
-            top: 0.5em;
-        }
-
-        &-20 {
-            position: absolute;
-            left: 52%;
-            top: 3.5em;
-        }
-
-        &-21 {
-            position: absolute;
-            left: 88%;
-            top: 5em;
-            white-space: nowrap;
-        }
-
-        &-22 {
-            position: absolute;
-            left: 85%;
-            top: -0.25em;
-            white-space: nowrap;
-        }
-
-        &-23 {
-            position: absolute;
-            left: 0%;
-            top: 2.25em;
-        }
-        &-24 {
-            position: absolute;
-            left: 2.5%;
-            top: 0.5em;
-        }
-
-        &-25 {
-            position: absolute;
-            left: 56%;
-            top: 1.75em;
-        }
-
-        &-26 {
-            position: absolute;
-            left: 25%;
-            top: 3.25em;
-        }
-
-        &-27 {
-            position: absolute;
-            left: 75%;
-            top: 0.75em;
-        }
-
-        &-28 {
-            position: absolute;
-            left: 87%;
-            top: 1.5em;
-        }
-
-        &-29 {
-            position: absolute;
-            left: 72%;
-            top: 6em;
-        }
-
-        &-30 {
-            position: absolute;
-            left: 28%;
-            top: 2em;
-        }
-    }
-}
-
 .ternary-system {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     left: 75vw;
     transform: translateX(-100%);
 }
@@ -253,12 +49,13 @@
 
 .bubble.ternary {
     margin-top: 4px;
-    right: 0;
     transform: translateX(10.8rem);
     width: 50vw;
     max-width: 600px;
     height: 50vw;
     max-height: 600px;
+    justify-content: center;
+    display: flex;
 }
 
 .bubble.quaternary {
@@ -280,7 +77,6 @@
 .text {
     position: absolute;
     width: auto;
-    right: 3.5vw;
     bottom: 290px;
     transform: translateY(50%);
     font-size: 2rem;
@@ -289,28 +85,28 @@
 .title {
     text-align: center;
     font-size: 1em;
-    font-family: 'Oswald';
+    font-family: 'Oswald', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     line-height: 1.3em;
     margin: 0;
     color: $white;
-}
 
-.title strong {
-    display: block;
-    font-weight: 700;
-    font-size: 2em;
-    line-height: 1em;
-}
+    strong {
+        display: block;
+        font-weight: 700;
+        font-size: 2em;
+        line-height: 1em;
+    }
 
-.title em {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.899em;
-    line-height: 1em;
-    letter-spacing: .29em;
-    margin-left: 0.25em;
+    em {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.899em;
+        line-height: 1em;
+        letter-spacing: .29em;
+        margin-left: 0.25em;
+    }
 }
 
 .subtitle {
@@ -434,6 +230,182 @@
     }
 }
 
+.banner {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 9rem;
+    min-height: 8rem;
+    background: $primary;
+    color: $violet-4;
+    text-align: justify;
+    padding: 0.25em;
+    font-size: larger;
+
+    &-text {
+        @for $i from 0 through 30 {
+            &-#{$i} {
+                position: absolute;
+
+                @if $i ==0 {
+                    left: 32%;
+                    top: 1.5em;
+                }
+
+                @else if $i ==1 {
+                    left: 60%;
+                    top: -0.25em;
+                }
+
+                @else if $i ==2 {
+                    left: 18%;
+                    top: 4.75em;
+                }
+
+                @else if $i ==3 {
+                    left: 48%;
+                    top: 5.75em;
+                }
+
+                @else if $i ==4 {
+                    left: 0.5%;
+                    top: 4.5em;
+                }
+
+                @else if $i ==5 {
+                    left: 70%;
+                    top: 2em;
+                }
+
+                @else if $i ==6 {
+                    left: 50%;
+                    top: -0.5em;
+                }
+
+                @else if $i ==7 {
+                    left: 15%;
+                    top: 1em;
+                }
+
+                @else if $i ==8 {
+                    left: 61%;
+                    top: 5.5em;
+                }
+
+                @else if $i ==9 {
+                    left: 13%;
+                    top: 3.25em;
+                }
+
+                @else if $i ==10 {
+                    left: 22%;
+                    top: 6em;
+                }
+
+                @else if $i ==11 {
+                    left: 27%;
+                    top: 0em;
+                }
+
+                @else if $i ==12 {
+                    left: 90%;
+                    top: 3em;
+                    white-space: nowrap;
+                }
+
+                @else if $i ==13 {
+                    left: 4%;
+                    top: 5.75em;
+                }
+
+                @else if $i ==14 {
+                    left: 10%;
+                    top: -0.25em;
+                }
+
+                @else if $i ==15 {
+                    left: 64%;
+                    top: 4.5em;
+                }
+
+                @else if $i ==16 {
+                    left: 34%;
+                    top: 4.5em;
+                }
+
+                @else if $i ==17 {
+                    left: 45%;
+                    top: 2.5em;
+                }
+
+                @else if $i ==18 {
+                    left: 84%;
+                    top: 4em;
+                    white-space: nowrap;
+                }
+
+                @else if $i ==19 {
+                    left: 40%;
+                    top: 0.5em;
+                }
+
+                @else if $i ==20 {
+                    left: 52%;
+                    top: 3.5em;
+                }
+
+                @else if $i ==21 {
+                    left: 88%;
+                    top: 5em;
+                    white-space: nowrap;
+                }
+
+                @else if $i ==22 {
+                    left: 85%;
+                    top: -0.25em;
+                    white-space: nowrap;
+                }
+
+                @else if $i ==23 {
+                    left: 0%;
+                    top: 2.25em;
+                }
+
+                @else if $i ==24 {
+                    left: 2.5%;
+                    top: 0.5em;
+                }
+
+                @else if $i ==25 {
+                    left: 56%;
+                    top: 1.75em;
+                }
+
+                @else if $i ==26 {
+                    left: 25%;
+                    top: 3.25em;
+                }
+
+                @else if $i ==27 {
+                    left: 75%;
+                    top: 0.75em;
+                }
+
+                @else if $i ==28 {
+                    left: 87%;
+                    top: 1.5em;
+                }
+
+                @else if $i ==29 {
+                    left: 72%;
+                    top: 6em;
+                }
+
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 1280px) {
     .ternary-system {
         bottom: 0vw;
@@ -441,7 +413,6 @@
 
     .text {
         bottom: 240px;
-        right: 12vh;
         font-size: 2.3vw;
     }
 
@@ -462,7 +433,6 @@
 
     .text {
         bottom: 240px;
-        right: 12vh;
         font-size: 2.3vw;
     }
 
@@ -483,27 +453,138 @@
 
     .text {
         bottom: 130px;
-        right: 4.5vh;
         font-size: 2.5vw;
     }
 
     .developer {
-        bottom: 8.5vw;
+        bottom: 9.5vw;
+    }
+
+    .dev {
+        right: 50vw;
     }
 }
 
 @media only screen and (max-width: 480px) {
     .ternary-system {
-        bottom: 18vw;
+        bottom: 25vw;
     }
 
     .text {
         bottom: 100px;
-        right: 14vw;
+        font-size: 0.5em;
+    }
+
+    .developer {
+        bottom: 22px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .ternary-system {
+        bottom: 40vw;
+        left: 60vw
+    }
+
+    .bubble.ternary {
+        right: 10vw;
+    }
+
+    .bubble.photo {
+        left: 45vh;
+    }
+
+    .bubble.secondary {
+        left: 20vw;
+    }
+
+    .bubble.quaternary {
+        left: 15vw;
+    }
+
+    .text {
+        bottom: 75px;
         font-size: 0.5em;
     }
 
     .developer {
         bottom: 20px;
+    }
+
+    .dev {
+        top: 7vw;
+        right: 25vw;
+    }
+
+    .banner {
+        &-text {
+            &-0 {
+                display: none;
+            }
+
+            &-1 {
+                display: none;
+            }
+
+            &-2 {
+                display: none;
+            }
+
+            &-3 {
+                display: none;
+            }
+
+            &-5 {
+                display: none;
+            }
+
+            &-6 {
+                display: none;
+            }
+
+            &-8 {
+                display: none;
+            }
+
+            &-10 {
+                display: none;
+            }
+
+            &-11 {
+                display: none;
+            }
+
+            &-15 {
+                display: none;
+            }
+
+            &-16 {
+                display: none;
+            }
+
+            &-19 {
+                display: none;
+            }
+
+            &-20 {
+                display: none;
+            }
+
+            &-23 {
+                display: none;
+            }
+
+            &-26 {
+                display: none;
+            }
+
+            &-27 {
+                display: none;
+            }
+
+            &-28 {
+                display: none;
+            }
+        }
     }
 }
