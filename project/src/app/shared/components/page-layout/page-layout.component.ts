@@ -42,6 +42,13 @@ export class PageLayoutComponent {
                 svg_icon: 'neo_icon',
                 colored: true,
             },
+            {
+                name: `Planner`,
+                path: 'planner',
+                icon: 'calendar_month',
+                svg_icon: 'neo_icon',
+                colored: true,
+            },
         ]
     }
 }

@@ -35,6 +35,10 @@ const routes: Routes = [
                 path: 'marvel',
                 loadChildren: () => import('./marvel/marvel.module').then(m => m.MarvelModule)
             },
+            {
+                path: 'planner',
+                loadChildren: () => import('./planner/planner.module').then(m => m.PlannerModule)
+            },
         ]
     },
 ];
