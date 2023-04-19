@@ -1,0 +1,14 @@
+@use "../../../../assets/styles/abstracts/variables.scss" as *;
+
+.contact-wrapper {
+    padding: 4em 0;
+    height: calc(100vh - 136px);
+    color: $violet-4;
+}
+
+.social {
+    &-icon {
+       color: $violet-4;
+       padding: 1.5em;
+    }
+}

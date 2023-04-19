@@ -59,6 +59,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ContactComponent } from './components/contact/contact.component';
 
 const MAT_MODULES = [
     A11yModule,
@@ -123,6 +124,7 @@ const MAT_MODULES = [
         BannerComponent,
         AboutMeComponent,
         SkillsComponent,
+        ContactComponent,
     ],
     imports: [
         CommonModule,
@@ -137,6 +139,7 @@ const MAT_MODULES = [
         BannerComponent,
         AboutMeComponent,
         SkillsComponent,
+        ContactComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
