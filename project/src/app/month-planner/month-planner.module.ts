@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PlannerComponent } from './planner.component';
+import { MonthPlannerRoutingModule } from './month-planner-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { PlannerRoutingModule } from './planner-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
+import { MonthPlannerComponent } from './month-planner.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 const MAT_MODULES = [
-    FormsModule,
+    //FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
+    //MatFormFieldModule,
 ]
 
 @NgModule({
     declarations: [
-        PlannerComponent,
+        MonthPlannerComponent,
     ],
     imports: [
         CommonModule,
         SharedModule,
-        PlannerRoutingModule,
+        MonthPlannerRoutingModule,
         RouterModule,
         ...MAT_MODULES,
     ]
 })
-export class PlannerModule { }
+export class MonthPlannerModule { }

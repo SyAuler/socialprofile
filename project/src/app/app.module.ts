@@ -25,7 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarvelModule } from './marvel/marvel.module';
 import { MarvelApiService } from './core/services/marvel-api.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { PlannerModule } from './planner/planner.module';
 import { PlannerService } from './planner/planner.service';
 
 const MAT_MODULES = [
@@ -57,7 +56,6 @@ const MAT_MODULES = [
         DashboardModule,
         PokemonModule,
         MarvelModule,
-        PlannerModule,
         FontAwesomeModule,
     ],
     providers: [

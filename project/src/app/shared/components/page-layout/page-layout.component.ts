@@ -43,11 +43,29 @@ export class PageLayoutComponent {
                 colored: true,
             },
             {
-                name: `Planner`,
+                dropdown: `Planner`,
                 path: 'planner',
                 icon: 'calendar_month',
                 svg_icon: 'neo_icon',
                 colored: true,
+                items: [
+                    {
+                        name: `Dashboard`,
+                        path: 'planner',
+                    },
+                    {
+                        name: `Mensal`,
+                        path: 'month-planner',
+                    },
+                    {
+                        name: `Semanal`,
+                        path: 'week-planner',
+                    },
+                    {
+                        name: `Diário`,
+                        path: 'daily-planner',
+                    },
+                ],
             },
         ]
     }

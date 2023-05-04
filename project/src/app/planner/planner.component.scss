@@ -1,1 +1,16 @@
 @use "../../../src/assets/styles/abstracts/variables.scss" as *;
+
+.planner {
+
+    &-graphics {
+        min-height: 10em;
+    }
+
+    &-goals {
+        min-height: 10em;
+    }
+
+    &-notes {
+        min-height: 10em;
+    }
+}

@@ -21,12 +21,11 @@ export class SidebarComponent implements OnInit {
     @Input() links: IMenuItem[] = []
     @Input() theme!: string;
     
-    public collapseIcon: string = 'chevron_left';
+    collapseIcon: string = 'chevron_left';
     isExpanded = false;
+    showSubmenu: boolean = false;
     
-    constructor(
-        private router: Router,
-    ) {	}
+    constructor() {	}
 
     ngOnInit() {
     }

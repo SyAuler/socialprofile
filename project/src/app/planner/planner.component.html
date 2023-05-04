@@ -1,23 +1,41 @@
-<div>
-    <div class="row">
+<div class="planner">
+    <div class="row m-2">
         <h3>Planner</h3>
     </div>
-    <div class="row">
-        <div class="col-8">
+    <div class="row m-2 planner-graphics d-flex align-items-center">
+        <div class="col-6 d-flex justify-content-center">
             <div class="row h-100">
-                Tarefas importantes do dia
-            </div>
-            <div class="row h-100">
-                Tabela com as tarefas
+                Gráfico geral
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-6 d-flex justify-content-center">
             <div class="row h-100">
-                Calendario
+                Gráfico progresso de cada objetivo
             </div>
-            <div class="row h-100">
-                Tarefas em andamento
-            </div>
+        </div>
+    </div>
+    <div class="row h-100 m-2 planner-goals">
+        <h5>Objetivos</h5>
+        <div>
+
+        </div>
+    </div>
+    <div class="row m-2 h-100">
+        <div>
+            <h5>Tabela</h5>
+        </div>
+        <div>
+            <app-table [data]="plannerData" [columnsData]="columnsData" [pageSize]="pageSize" [page]="page"
+                [count]="count" (requestParamsOutput)="loadData($event)">
+            </app-table>
+        </div>
+    </div>
+    <div class="row h-100 m-2 planner-notes">
+        <div>
+            <h5>Anotações</h5>
+        </div>
+        <div>
+            sass
         </div>
     </div>
 </div>

@@ -7,7 +7,7 @@
         <div class="sidebar-menu-container">
             <mat-nav-list class="sidebar-list">
                 <div *ngFor="let menuItem of links">
-                    <a mat-nav-list class="sidebar-menu-item" 
+                    <a mat-nav-list class="sidebar-menu-item" *ngIf="!menuItem.dropdown"
                     [routerLink]="menuItem.path" [routerLinkActive]="'is-active'">
                         <span mat-line *ngIf="!isExpanded" class="sidebar-menu-item-text">
                             {{ menuItem.name }}
@@ -16,6 +16,30 @@
                             {{ menuItem.icon || '' }}
                         </mat-icon>
                     </a>
+                    <div *ngIf="menuItem.dropdown">
+                        <a mat-nav-list class="sidebar-menu-item">                            
+                            <span *ngIf="!isExpanded" [routerLink]="menuItem.path"
+                            (click)="showSubmenu=true" class="sidebar-menu-item-text" (click)="showSubmenu=true">
+                                {{menuItem.dropdown}}
+                            </span>
+                            <mat-icon mat-list-icon inline="true" class="sidebar-menu-item-icon"
+                            (click)="!isExpanded = true; showSubmenu=true" [routerLink]="menuItem.path">
+                                {{menuItem.icon || ''}}
+                            </mat-icon>
+                            <mat-icon *ngIf="!isExpanded" (click)="showSubmenu = !showSubmenu">
+                                {{!showSubmenu ? 'expand_more' : 'expand_less'}}
+                            </mat-icon>
+                        </a>    
+                        <div class="submenu" [class.expanded]="showSubmenu">
+                            <a mat-list-item *ngFor="let menuSubItem of menuItem.items" class="sidebar-menu-item pl-4"
+                                [routerLink]="menuSubItem.path" [routerLinkActive]="'is-active'" #subMenu="routerLinkActive"
+                                appLoadComponent="menuSubItem.path">
+                                <span mat-line *ngIf="!isExpanded" class="sidebar-menu-item-text">
+                                    {{menuSubItem.name}}
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                     <mat-divider class="sidebar-divider"></mat-divider>
                 </div>
             </mat-nav-list>

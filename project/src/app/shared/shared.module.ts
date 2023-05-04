@@ -60,6 +60,7 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactComponent } from './components/contact/contact.component';
+import { TableComponent } from './components/table/table.component';
 
 const MAT_MODULES = [
     A11yModule,
@@ -125,6 +126,7 @@ const MAT_MODULES = [
         AboutMeComponent,
         SkillsComponent,
         ContactComponent,
+        TableComponent,
     ],
     imports: [
         CommonModule,
@@ -140,6 +142,7 @@ const MAT_MODULES = [
         AboutMeComponent,
         SkillsComponent,
         ContactComponent,
+        TableComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

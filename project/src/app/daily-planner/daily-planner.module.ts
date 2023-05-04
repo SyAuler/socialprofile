@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PlannerComponent } from './planner.component';
+import { DailyPlannerComponent } from './daily-planner.component';
 import { SharedModule } from '../shared/shared.module';
-import { PlannerRoutingModule } from './planner-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { DailyPlannerRoutingModule } from './daily-planner-routing.module';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 const MAT_MODULES = [
-    FormsModule,
+    //FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
+    //MatFormFieldModule,
 ]
 
 @NgModule({
     declarations: [
-        PlannerComponent,
+        DailyPlannerComponent,
     ],
     imports: [
         CommonModule,
         SharedModule,
-        PlannerRoutingModule,
+        DailyPlannerRoutingModule,
         RouterModule,
         ...MAT_MODULES,
     ]
 })
-export class PlannerModule { }
+export class DailyPlannerModule { }

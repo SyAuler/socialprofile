@@ -39,6 +39,18 @@ const routes: Routes = [
                 path: 'planner',
                 loadChildren: () => import('./planner/planner.module').then(m => m.PlannerModule)
             },
+            {
+                path: 'month-planner',
+                loadChildren: () => import('./month-planner/month-planner.module').then(m => m.MonthPlannerModule)
+            },
+            {
+                path: 'week-planner',
+                loadChildren: () => import('./week-planner/week-planner.module').then(m => m.WeekPlannerModule)
+            },
+            {
+                path: 'daily-planner',
+                loadChildren: () => import('./daily-planner/daily-planner.module').then(m => m.DailyPlannerModule)
+            },
         ]
     },
 ];
