@@ -62,7 +62,6 @@ export class TableComponent implements OnInit {
     }
 
     setParams(): void {
-        this.listLoading = true;
         this.requestParams.ordering = this.ordering;
         this.requestParams.page = this.page;
         this.requestParams.page_size = this.pageSize;

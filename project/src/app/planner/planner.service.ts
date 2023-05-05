@@ -107,7 +107,7 @@ export class PlannerService {
 
     constructor() { }
 
-    getData() {
+    getData(params?:any) {
         return of(this.data)
     }
 }

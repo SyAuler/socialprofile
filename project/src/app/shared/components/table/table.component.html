@@ -16,6 +16,9 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <ng-container *ngIf="!listLoading && (!dataSource || dataSource && dataSource.filteredData.length === 0)">
+        <mat-error><strong>Nenhum resultado encontrado.</strong></mat-error>
+    </ng-container>
     <mat-paginator #paginator [pageIndex]="(page - 1)" [pageSize]="pageSize" [length]="count"
         [pageSizeOptions]="pageSizeOptions" (page)="pageEvents($event)" showFirstLastButtons *ngIf="paginate">
     </mat-paginator>

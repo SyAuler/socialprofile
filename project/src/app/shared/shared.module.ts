@@ -61,6 +61,8 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactComponent } from './components/contact/contact.component';
 import { TableComponent } from './components/table/table.component';
+import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 const MAT_MODULES = [
     A11yModule,
@@ -127,6 +129,8 @@ const MAT_MODULES = [
         SkillsComponent,
         ContactComponent,
         TableComponent,
+        DonutChartComponent,
+        BarChartComponent,
     ],
     imports: [
         CommonModule,
@@ -143,6 +147,8 @@ const MAT_MODULES = [
         SkillsComponent,
         ContactComponent,
         TableComponent,
+        DonutChartComponent,
+        BarChartComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
