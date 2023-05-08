@@ -11,7 +11,7 @@ export class BarChartComponent {
     @Input() dataChart: any;
     
     private svg: any;
-    private width = window.innerWidth * 0.3;
+    private width = window.innerWidth * 0.25;
     private height = window.innerHeight * 0.2;
     private margin = 50;
 
@@ -28,7 +28,7 @@ export class BarChartComponent {
     }
 
     private createSvg(): void {
-        this.svg = d3.select("figure#bar")
+        this.svg = d3.select("div#bar")
             .append("svg")
             .attr("width", this.width + (this.margin * 2))
             .attr("height", this.height + (this.margin * 2))
@@ -49,7 +49,9 @@ export class BarChartComponent {
             .call(d3.axisBottom(x))
             .selectAll("text")
             .attr("transform", "translate(-10,0)rotate(-45)")
-            .style("text-anchor", "end");
+            .style("text-anchor", "end")
+            .attr('font-size', '1em')
+            .style('font-family', "'Roboto', sans-serif");
 
         // Create the Y-axis band scale
         const y = d3.scaleLinear()
@@ -69,7 +71,7 @@ export class BarChartComponent {
             .attr("y", (d: any) => y(d.Stars))
             .attr("width", x.bandwidth())
             .attr("height", (d: any) => this.height - y(d.Stars))
-            .attr("fill", "#997DF0"); //ccaaff 997DF0
+            .attr("fill", "#997DF0") //ccaaff 997DF0
     }
 
 

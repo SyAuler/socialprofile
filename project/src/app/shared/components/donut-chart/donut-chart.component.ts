@@ -13,8 +13,8 @@ export class DonutChartComponent implements OnInit {
 
     private container: any;
     private svg: any;
-    private width = window.innerWidth * 0.4;
-    private height = window.innerHeight * 0.3;
+    private width = window.innerWidth * 0.3;
+    private height = window.innerHeight * 0.32;
 
     constructor(
         private elRef: ElementRef,
@@ -71,10 +71,26 @@ export class DonutChartComponent implements OnInit {
 
         this.svg.append('text')
             .attr('text-anchor', 'middle')
-            .attr('dy', '-0.5em')
-            .attr('font-size', '3em')
+            .attr('dy', '0')
+            .attr('font-size', '3.5em')
             .style('font-family', "'Rajdhani', sans-serif")
             .text(`${this.dataChart}%`);
+
+        this.svg.append('text')
+            .attr('text-anchor', 'middle')
+            .attr('dx', '-7.5em')
+            .attr('dy', '1em')
+            .attr('font-size', '1em')
+            .style('font-family', "'Rajdhani', sans-serif")
+            .text('0');
+
+        this.svg.append('text')
+            .attr('text-anchor', 'middle')
+            .attr('dx', '7.55em')
+            .attr('dy', '1em')
+            .attr('font-size', '1em')
+            .style('font-family', "'Rajdhani', sans-serif")
+            .text('100');
     }
 
 }

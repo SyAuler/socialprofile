@@ -3,27 +3,35 @@
         <h3 class="planner-title">Planner {{ date | date: 'YYYY' }}</h3>
         <hr>
     </div>
-    <div class="row mx-2 my-4 planner-graphics d-flex align-items-center">
-        <div class="col-6 d-flex justify-content-center">
+    <div class="default-card row px-2 py-4 d-flex align-items-center">
+        <div class="planner-graphics col-6">
+            <h5 class="planner-subtitle">Progresso Geral</h5>
             <div class="row h-100">
                 <app-donut-chart [dataChart]="donutChart"></app-donut-chart>
             </div>
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div class="planner-graphics col-6">
+            <h5 class="planner-subtitle">Progresso dos Objetivos</h5>
             <div class="row h-100">
                 <app-bar-chart [dataChart]="barChart"></app-bar-chart>
             </div>
         </div>
     </div>
-    <div class="row h-100 mx-2 my-4 planner-goals">
-        <h5>Objetivos</h5>
-        <div>
-
+    <div class="default-card row h-100 px-3 py-4 planner-goals">
+        <h5 class="planner-subtitle">Objetivos</h5>
+        <hr>
+        <div class="planner-badge col d-flex align-items-center">
+            <ng-container *ngFor="let item of teste">
+                <span class="badge bg-primary d-flex align-items-center">
+                    {{item}}
+                </span>
+            </ng-container>
         </div>
     </div>
-    <div class="row mx-2 my-4 h-100">
+    <div class="default-card row px-2 py-4 h-100">
         <div>
-            <h5>Tabela</h5>
+            <h5 class="planner-subtitle">Atividades mensais</h5>
+            <hr>
         </div>
         <div>
             <app-table [data]="plannerData" [columnsData]="columnsData" 
@@ -31,12 +39,20 @@
             </app-table>
         </div>
     </div>
-    <div class="row h-100 mx-2 my-4 planner-notes">
+    <div class="default-card row h-100 px-2 py-4 planner-notes">
         <div>
-            <h5>Anotações</h5>
+            <h5 class="planner-subtitle">Anotações</h5>
+            <hr>
         </div>
         <div>
-            sass
+            <ul *ngFor="let item of items">
+                <li>
+                    <label>
+                        <input class="planner-checkbox" type="checkbox" [(ngModel)]="item.selected">
+                        {{ item.text }}
+                    </label>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

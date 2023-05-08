@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8">
+<div>
     <mat-progress-bar *ngIf="listLoading" mode="indeterminate"></mat-progress-bar>
     <table mat-table matSort [dataSource]="dataSource" matSortActive="defaultOrdering" matSortStart="desc">
         <ng-container *ngFor="let column of columnsData" [matColumnDef]="column.id">

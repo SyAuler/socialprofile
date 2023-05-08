@@ -12,8 +12,20 @@
         color: $violet;
     }
 
+    &-subtitle {
+        padding: 0;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 500;
+        font-size: 1.5em;
+        color: $violet;
+    }
+
+    &-badge {
+        flex-wrap: wrap;
+    }
+
     &-graphics {
-        min-height: 10em;
+        min-height: 20em;
     }
 
     &-goals {
@@ -22,5 +34,22 @@
 
     &-notes {
         min-height: 10em;
+    }
+
+    &-checkbox {
+        margin: 0.5em;
+    }
+}
+
+.badge {
+    height: 3em;
+    background-color: $violet !important;
+    margin: 0.5em;
+}
+
+ul {
+    padding: 0;
+    li {
+        list-style: none;
     }
 }

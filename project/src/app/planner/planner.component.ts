@@ -57,6 +57,33 @@ export class PlannerComponent implements OnInit {
         },
     ]
 
+    teste = [
+        'Fazer uma Viagem',
+        'Comprar um carro',
+        'Celular Novo',
+        'Reformar casa',
+        'Comprar um imóvel',
+        'Investimentos',
+        'Realizar cirurgia',
+        'Procedimento estético',
+        'Academia',
+        'Comprar Bens materiais',
+        'Ler 12 livros',
+        'Estudar sobre um assunto',
+        'Eventos',
+        'Alimentação',
+         ]
+
+    items = [
+        { text: 'Item 1', selected: false },
+        { text: 'Item 2', selected: true },
+        { text: 'Item 3', selected: false },
+        { 
+            text: 'Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação Alimentação',
+            selected: true,
+        }
+      ];
+
     constructor(
         private plannerService: PlannerService,
     ) { }
