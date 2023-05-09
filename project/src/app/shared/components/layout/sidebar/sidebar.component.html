@@ -30,13 +30,16 @@
                                 {{!showSubmenu ? 'expand_more' : 'expand_less'}}
                             </mat-icon>
                         </a>    
-                        <div class="submenu" [class.expanded]="showSubmenu">
-                            <a mat-list-item *ngFor="let menuSubItem of menuItem.items" class="sidebar-menu-item pl-4"
+                        <div class="sidebar-submenu" [class.expanded]="showSubmenu">
+                            <a mat-nav-list class="sidebar-submenu-item" *ngFor="let menuSubItem of menuItem.items"
                                 [routerLink]="menuSubItem.path" [routerLinkActive]="'is-active'" #subMenu="routerLinkActive"
                                 appLoadComponent="menuSubItem.path">
-                                <span mat-line *ngIf="!isExpanded" class="sidebar-menu-item-text">
+                                <span mat-line *ngIf="!isExpanded" class="sidebar-submenu-item-text d-flex justify-content-end">
                                     {{menuSubItem.name}}
                                 </span>
+                                <mat-icon mat-list-icon inline="true" class="sidebar-menu-item-icon">
+                                    {{ menuSubItem.icon || '' }}
+                                </mat-icon>
                             </a>
                         </div>
                     </div>

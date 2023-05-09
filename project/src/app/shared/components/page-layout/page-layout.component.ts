@@ -52,18 +52,22 @@ export class PageLayoutComponent {
                     {
                         name: `Dashboard`,
                         path: 'planner',
+                        icon: 'event_note',
                     },
                     {
                         name: `Mensal`,
                         path: 'month-planner',
+                        icon: 'calendar_view_month',
                     },
                     {
                         name: `Semanal`,
                         path: 'week-planner',
+                        icon: 'calendar_view_week',
                     },
                     {
                         name: `Diário`,
                         path: 'daily-planner',
+                        icon: 'calendar_view_day',
                     },
                 ],
             },

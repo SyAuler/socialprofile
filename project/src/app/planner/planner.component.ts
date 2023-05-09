@@ -14,11 +14,14 @@ export class PlannerComponent implements OnInit {
     
     donutChart: any = 45;
     barChart:any = [
-        { "Framework": "Vue", "Stars": "55", "Released": "2014" },
-        { "Framework": "React", "Stars": "30", "Released": "2013" },
-        { "Framework": "Angular", "Stars": "70", "Released": "2016" },
-        { "Framework": "Backbone", "Stars": "25", "Released": "2010" },
-        { "Framework": "Ember", "Stars": "90", "Released": "2011" },
+        { "name": "Vue", "Stars": "55", "Released": "2014" },
+        { "name": "React", "Stars": "30", "Released": "2013" },
+        { "name": "Angular", "Stars": "70", "Released": "2016" },
+        { "name": "Backbone", "Stars": "25", "Released": "2010" },
+        { "name": "Ember", "Stars": "90", "Released": "2011" },
+        { "name": "ABC", "Stars": "90", "Released": "2011" },
+        { "name": "Carro", "Stars": "90", "Released": "2011" },
+        { "name": "Casa", "Stars": "90", "Released": "2011" },
     ];
 
     ordering = '-uuid';

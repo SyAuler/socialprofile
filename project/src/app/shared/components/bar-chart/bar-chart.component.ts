@@ -40,7 +40,7 @@ export class BarChartComponent {
         // Create the X-axis band scale
         const x = d3.scaleBand()
             .range([0, this.width])
-            .domain(data.map(d => d.Framework))
+            .domain(data.map(d => d.name))
             .padding(0.2);
 
         // Draw the X-axis on the DOM
@@ -67,12 +67,11 @@ export class BarChartComponent {
             .data(data)
             .enter()
             .append("rect")
-            .attr("x", (d: any) => x(d.Framework))
+            .attr("x", (d: any) => x(d.name))
             .attr("y", (d: any) => y(d.Stars))
             .attr("width", x.bandwidth())
             .attr("height", (d: any) => this.height - y(d.Stars))
             .attr("fill", "#997DF0") //ccaaff 997DF0
     }
-
 
 }
