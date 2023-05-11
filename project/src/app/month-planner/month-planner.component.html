@@ -1,1 +1,26 @@
-<p>month-planner works!</p>
+<div class="month-planner">
+    <div class="row mx-2 my-4">
+        <h3 class="month-planner-title">{{ date | date : 'MMMM' : 'pt-BR' }} de {{ date | date : 'YYYY' }}</h3>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-6">Maiores projetos</div>
+        <div class="col-6">Maiores eventos</div>
+    </div>
+    <div class="row">
+        <div class="col-6">Coisas que devem acontecer este mês</div>
+        <div class="col-6">Os principais prazos deste mês incluem</div>
+    </div>
+    <div class="row">
+        <div class="col-6">A melhor maneira de garantir que eu performe este mês é</div>
+        <div class="col-6">Eu sentiria que estou vivendo minha melhor vida se este mês</div>
+    </div>
+    <div class="row">
+        <div class="row d-flex justify-content-end ">
+            <button class="w-25">Nova tarefa</button>
+        </div>
+        <div class="row">
+            <app-calendar></app-calendar>
+        </div>
+    </div>
+</div>

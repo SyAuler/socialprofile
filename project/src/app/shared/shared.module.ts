@@ -63,6 +63,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TableComponent } from './components/table/table.component';
 import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 const MAT_MODULES = [
     A11yModule,
@@ -131,12 +134,17 @@ const MAT_MODULES = [
         TableComponent,
         DonutChartComponent,
         BarChartComponent,
+        CalendarComponent,
     ],
     imports: [
         CommonModule,
         ...MAT_MODULES,
         RouterModule,
         FontAwesomeModule,
+        CalendarModule.forRoot({
+            provide: DateAdapter,
+            useFactory: adapterFactory,
+          }),
     ],
     exports: [
         ButtonComponent,
@@ -149,6 +157,7 @@ const MAT_MODULES = [
         TableComponent,
         DonutChartComponent,
         BarChartComponent,
+        CalendarComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
