@@ -1,11 +1,13 @@
 @use "../../../../assets/styles/abstracts/variables.scss" as *;
 
-/* .calendar-container {
+.calendar-container {
     max-width: 100%;
     margin: 0 auto;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
   }
 
-
+/* 
   .teste {
     color: #2d2d2d;
     background-color: $violet-5;
@@ -52,6 +54,13 @@
     grid-column: 1/8;
 }
 
+.week-day {
+    margin: 0.25em;
+    border: solid 1px $violet-2;
+    border-radius: 0.25em;
+    color: $gray-900;
+    height: 2em;
+}
 .current-month {
     margin: 0.25em;
     //background-color: $violet-2;
@@ -59,8 +68,6 @@
     border-radius: 0.25em;
     color: $violet-2;
     height: 5em;
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
 }
 .month-disabled {
     margin: 0.25em;
@@ -69,8 +76,6 @@
     border-radius: 0.25em;
     color: $gray-200;
     height: 5em;
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
 }
 
 .current-month.selected {
@@ -79,3 +84,13 @@
     color: white;
   }
   
+.btn-today {
+    height: 3em;
+    width: 75%;
+    font-size: 1em;
+    background-color: $violet;
+    border: none;
+    border-radius: 0.5em;
+    color: $white;
+    font-weight: 500;
+}

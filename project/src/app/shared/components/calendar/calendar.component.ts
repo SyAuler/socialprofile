@@ -81,6 +81,26 @@ export class CalendarComponent implements OnInit {
 
     public colors = '#997DF0';
 
+    anoSelecionado: number = this.dataAtual.getFullYear(); // Ano selecionado
+    anos: any = [];
+
+    meses = [
+        { nome: 'Janeiro', valor: 0 },
+        { nome: 'Fevereiro', valor: 1 },
+        { nome: 'Março', valor: 2 },
+        { nome: 'Abril', valor: 3 },
+        { nome: 'Maio', valor: 4 },
+        { nome: 'Junho', valor: 5 },
+        { nome: 'Julho', valor: 6 },
+        { nome: 'Agosto', valor: 7 },
+        { nome: 'Setembro', valor: 8 },
+        { nome: 'Outubro', valor: 9 },
+        { nome: 'Novembro', valor: 10 },
+        { nome: 'Dezembro', valor: 11 }
+    ];
+
+    mostrarBotaoHoje = false;
+
     modalData: {
         action: string;
         event: CalendarEvent;
@@ -160,37 +180,34 @@ export class CalendarComponent implements OnInit {
     diasCalendarioCompleto: any = [];
     selectedDate!: Date;
     selectedDia: { semana: number, dia: number } | undefined;
-    selectedItem!: {semana: number | null, dia: number | null};
+    selectedItem!: { semana: number | null, dia: number | null };
 
 
     constructor() { }
 
     ngOnInit(): void {
         this.getSemanasCalendario();
-    }
-
-    toggleCollapse() {
-        this.isCollapsed = !this.isCollapsed;
+        this.ano();
     }
 
     abrirCollapse(semana: number, dia: number) {
         const selectedItem = { semana, dia: dia };
-        if (this.selectedItem && this.selectedItem.semana === semana 
+        if (this.selectedItem && this.selectedItem.semana === semana
             && this.mostrarCollapse[semana] && this.selectedItem.dia === dia) { //this.mostrarCollapse[semana]
-          // O collapse da semana selecionada já está aberto, mantenha-o aberto e atualize selectedItem
-          this.selectedItem = selectedItem;
-          this.mostrarCollapse[semana] = !this.mostrarCollapse[semana];
-          
+            // O collapse da semana selecionada já está aberto, mantenha-o aberto e atualize selectedItem
+            this.selectedItem = selectedItem;
+            this.mostrarCollapse[semana] = !this.mostrarCollapse[semana];
+
         } else {
-          // Feche o collapse atual e abra o novo collapse
-          this.mostrarCollapse.fill(false);
-          this.mostrarCollapse[semana] = true;
-          this.selectedItem = selectedItem;
-          
+            // Feche o collapse atual e abra o novo collapse
+            this.mostrarCollapse.fill(false);
+            this.mostrarCollapse[semana] = true;
+            this.selectedItem = selectedItem;
+
         }
-      }
-      
-      fecharCollapse(semana: any, dia?: any) {
+    }
+
+    fecharCollapse(semana: any, dia?: any) {
         if (dia !== undefined) {
             const chave = `${semana}-${dia}`;
             this.mostrarCollapse[chave] = false;
@@ -199,13 +216,13 @@ export class CalendarComponent implements OnInit {
                 this.mostrarCollapse[key] = false;
             }
         }
-    }      
+    }
 
     selecionarDia(semana: number, dia: number) {
         const dataSelecionada = this.semanasCalendario[semana][dia];
         if (this.dataAtual.getMonth() === dataSelecionada.getMonth()) {
-          this.selectedItem = { semana, dia };
-          this.selectedDate = dataSelecionada
+            this.selectedItem = { semana, dia };
+            this.selectedDate = dataSelecionada
         }
     }
 
@@ -254,11 +271,81 @@ export class CalendarComponent implements OnInit {
     }
 
     alterarMes(offsetMes: number) {
-        this.dataAtual.setMonth(this.dataAtual.getMonth() + offsetMes);
-        this.dataAtual = new Date(this.dataAtual.getTime());
-        //this.construirCalendario();
+        const mesSelecionado = this.dataAtual.getMonth();
+        const anoSelecionado = this.dataAtual.getFullYear();
+
+        if (
+            this.dataAtual.getMonth() !== offsetMes
+        ) {
+            this.mostrarBotaoHoje = true; // Define como true se o mês ou o ano foi alterado
+        } else {
+            this.mostrarBotaoHoje = false; // Define como false se apenas o dia foi alterado
+        }
+
+        this.dataAtual = new Date(anoSelecionado, mesSelecionado + offsetMes, 1);
         this.getSemanasCalendario();
     }
+
+    voltarParaHoje() {
+        this.dataAtual = new Date(); // Define a data atual como a nova data
+        this.getSemanasCalendario(); // Atualiza o grid do calendário
+        this.mostrarBotaoHoje = false; // Oculta o botão "Hoje"
+    }
+
+
+    ano() {
+        const anoAtual = new Date().getFullYear();
+        const anosAnteriores = 20;
+        const anosPosteriores = 10;
+
+        this.anos = Array.from({ length: anosAnteriores + anosPosteriores + 1 }, (_, index) => anoAtual - anosAnteriores + index);
+
+    }
+
+    atualizarAno(ano: any) {
+        const anoSelecionado = ano.target.value;
+
+        if (anoSelecionado !== null && this.anoSelecionado !== null) {
+            if (
+                this.dataAtual.getMonth() !== anoSelecionado
+            ) {
+                this.mostrarBotaoHoje = true; // Define como true se o mês ou o ano foi alterado
+            } else {
+                this.mostrarBotaoHoje = false; // Define como false se apenas o dia foi alterado
+            }
+
+            const novaData = new Date(this.dataAtual.getTime());
+            const anoAtual = novaData.getFullYear();
+
+            novaData.setFullYear(this.anoSelecionado);
+
+            if (anoSelecionado != anoAtual) {
+                novaData.setFullYear(anoSelecionado);
+            }
+
+            this.dataAtual = novaData;
+            this.getSemanasCalendario();
+        }
+    }
+
+    atualizarMes(offsetMes: any) {
+        const mesSelecionado = offsetMes.target.value;
+        const anoSelecionado = this.dataAtual.getFullYear();
+
+        if (
+            this.dataAtual.getMonth() !== offsetMes.target.value
+        ) {
+            this.mostrarBotaoHoje = true; // Define como true se o mês ou o ano foi alterado
+        } else {
+            this.mostrarBotaoHoje = false; // Define como false se apenas o dia foi alterado
+        }
+        this.dataAtual.setFullYear(anoSelecionado, mesSelecionado, 1);
+        this.dataAtual = new Date(this.dataAtual.getTime());
+        this.getSemanasCalendario();
+
+
+    }
+
 
     onDayClicked(day?: any) {
         this.isClicked = true;
@@ -395,9 +482,6 @@ export class CalendarComponent implements OnInit {
         this.events = this.events.filter((event) => event !== eventToDelete);
     }
 
-    /* setView(view: CalendarView) {
-        this.view = view;
-    } */
 
     closeOpenMonthViewDay() {
         this.activeDayIsOpen = false;

@@ -24,7 +24,7 @@ export class PokemonComponent implements OnInit {
     displayedColumns: string[] = ['name', 'url', 'actions'];
     listLoading: boolean = false;
 
-    pageSize = 15;
+    pageSize = 150;
     pageIndex = 0;
     pageLength: any;
     pageSizeOptions: Array<number> = [15, 30, 45, 60];

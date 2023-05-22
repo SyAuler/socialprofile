@@ -1,225 +1,68 @@
 <div class="calendar-container">
-
-    <div class="row text-center">
-        <div class="col-md-4">
-            <div class="btn-group">
-                <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
-                    (viewDateChange)="closeOpenMonthViewDay()">
-                    Previous
-                </div>
-                <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
-                    Today
-                </div>
-                <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
-                    (viewDateChange)="closeOpenMonthViewDay()">
-                    Next
+    <div class="row text-center card card-body pb-2 p-0">
+        <div class="col-md-4 w-100 my-2 d-flex justify-content-center">
+            <div class="col-1 d-flex justify-content-center align-items-center my-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chevron-left" viewBox="0 0 16 16" (click)="alterarMes(-1)">
+                    <path fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg>
+            </div>
+            <div class="col-2 m-1">
+                <div class="d-flex justify-content-end" *ngIf="mostrarBotaoHoje">
+                    <button class="btn-today" (click)="voltarParaHoje()">Hoje</button>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-        </div>
-        <div class="col-md-4">
-            <div class="btn-group">
-                <!-- <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
-                    [class.active]="view === CalendarView.Month">
-                    Month
-                </div> -->
-                <!-- <div class="btn btn-primary" (click)="setView(CalendarView.Week)"
-                    [class.active]="view === CalendarView.Week">
-                    Week
-                </div> -->
-                <!-- <div class="btn btn-primary" (click)="setView(CalendarView.Day)"
-                    [class.active]="view === CalendarView.Day">
-                    Day
-                </div> -->
+            <div class="col-3 m-1 d-flex justify-content-center">
+                <select class="form-select form-select-lg w-100" aria-label=".form-select-lg example"
+                    (change)="atualizarMes($event)">
+                    <option *ngFor="let mes of meses" [value]="mes.valor"
+                        [selected]="mes.valor === dataAtual.getMonth()">{{ mes.nome }}</option>
+                </select>
+            </div>
+            <div class="col-3 m-1 d-flex justify-content-center">
+                <select class="form-select form-select-lg w-100" aria-label=".form-select-lg example"
+                    (change)="atualizarAno($event)">
+                    <option *ngFor="let ano of anos" [value]="ano" [selected]="ano === dataAtual.getFullYear()">{{
+                        ano
+                        }}</option>
+                </select>
+            </div>
+            <div class="col-1 d-flex justify-content-center align-items-center my-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16" (click)="alterarMes(+1)">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
             </div>
         </div>
-    </div>
-    <br />
-    <!-- tabela -->
-    <!--     <div [ngSwitch]="view">
-        <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
-            [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
-            (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
-            [headerTemplate]="headerTemplate" [openDayEventsTemplate]="customTemplate">
-        </mwl-calendar-month-view>
-    </div> -->
-    <!-- [openDayEventsTemplate]="openDayEventsTemplate"  -->
-    <!--   <ng-template #customTemplate let-events="events" let-day="day">
-        <div class="teste" *ngIf="events">
-            <div></div>
-            <button mat-raised-button (click)="addEvent($event)">Criar nova tarefa</button>
-            <div *ngFor="let event of events">
-                <div>
-                    {{event.title}}
-
-                </div>
-            </div>
-        </div>
-    </ng-template> -->
-
-    <!--  <ng-template #headerTemplate let-days="days" let-dayClicked="dayClicked">
-        <div class="d-flex">
-            <div class="cal-header" *ngFor="let day of days">
-                <div class="day-label">
-                    {{ day.date | date: 'EEEE' | uppercase }}
-                </div>
-            </div>
-        </div>
-    </ng-template> -->
-
-
-
-    <br /><br /><br />
-
-    <!--     <h3>
-        Edit events
-        <button class="btn btn-primary float-end" (click)="addEvent($event)">
-            Add new
-        </button>
-        <div class="clearfix"></div>
-    </h3> -->
-
-    <!--     <div class="table-responsive">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Primary color</th>
-                    <th>Secondary + text color</th>
-                    <th>Starts at</th>
-                    <th>Ends at</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr *ngFor="let event of events">
-                    <td>
-                        <input type="text" class="form-control" [(ngModel)]="event.title" (keyup)="refresh.next()" />
-                    </td>
-                    <td>
-                        <input type="color" (change)="refresh.next()" />
-                    </td>
-                    <td>
-                        <input type="color" (change)="refresh.next()" />
-                        <input type="color" [ngModel]="'#1e90ff'" (change)="refresh.next()" />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" mwlFlatpickr (ngModelChange)="refresh.next()"
-                            dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Not set" />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" mwlFlatpickr (ngModelChange)="refresh.next()"
-                            dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Not set" />
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" (click)="deleteEvent(event)">
-                            Delete
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
-
-    <!--     <ng-template #modalContent let-close="close">
-        <div class="modal-header">
-            <h5 class="modal-title">Event action occurred</h5>
-            <button type="button" class="close" (click)="close()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div>
-                Action:
-                <pre>{{ modalData?.action }}</pre>
-            </div>
-            <div>
-                Event:
-                <pre>{{ modalData?.event | json }}</pre>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" (click)="close()">
-                OK
-            </button>
-        </div>
-    </ng-template> -->
-
-
-    <div>
-        <div class="calendario-titulo w-100 d-flex justify-center">
-            <div>
-                <button mat-raised-button (click)="alterarMes(-1)">ant.</button>
-            </div>
-            <div class="calendario-titulo-mes-ano">
-                {{dataAtual | date : 'MMM yyyy'}}
-            </div>
-            <div>
-                <button mat-raised-button (click)="alterarMes(+1)">prox.</button>
-            </div>
-        </div>
+        <hr class="m-0">
         <div class="calendario-dias w-100">
             <ng-container *ngFor="let dia of diasCalendarioCompleto; let i = index">
-                <div *ngIf="i < 7">
-                    <strong>{{ dia | date: 'EEEEE' }}</strong>
+                <div class="week-day d-flex justify-content-center align-items-center" *ngIf="i < 7">
+                    <strong>{{ dia | date: 'EEEE' }}</strong>
                 </div>
             </ng-container>
 
             <div class="content-tr" *ngFor="let semana of semanasCalendario; let i = index">
                 <div class="w-100 content-body" *ngFor="let dia of semana; let indexDay = index"
                     [class.calendario-quebrar-linha]="dia.isFirstDayOfWeek">
-                    <div class="current-month" *ngIf="dataAtual.getMonth() === dia.getMonth()"
-                    (click)="abrirCollapse(i, indexDay); selecionarDia(i, indexDay); fecharCollapse(i, indexDay)">
+                    <div class="current-month"
+                        [class.selected]="selectedItem?.semana === i && selectedItem?.dia === indexDay"
+                        *ngIf="dataAtual.getMonth() === dia.getMonth()"
+                        (click)="abrirCollapse(i, indexDay); selecionarDia(i, indexDay); fecharCollapse(i, indexDay)">
                         {{ dia | date : 'dd' }}
                     </div>
-                    <div class="month-disabled"
-                    *ngIf="dataAtual.getMonth() !== dia.getMonth()">
+                    <div class="month-disabled" *ngIf="dataAtual.getMonth() !== dia.getMonth()">
                         {{ dia | date : 'dd' }}
                     </div>
                 </div>
                 <div class="collapse table-collapse w-100" [id]="'collapse-' + i" [class.show]="mostrarCollapse[i]">
                     <div class="card card-body w-100">
-                        Algum conteúdo aqui para o dia {{selectedDate | date: 'short'}}
+                        Algum conteúdo aqui para o dia {{selectedDate | date: 'shortDate'}}
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- <table class="calendario-dias w-100">
-            <thead>
-              <tr>
-                <th *ngFor="let dia of diasCalendario; let i = index">
-                  <ng-container *ngIf="i < 7">
-                    <strong>{{ dia | date: 'EEEEE' }}</strong>
-                  </ng-container>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let semana of semanasCalendario; let i = index">
-                <ng-container *ngFor="let dia of semana">
-                  <td class="calendario-dia w-100" [class.calendario-quebrar-linha]="dia.isFirstDayOfWeek">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" 
-                    (click)="abrirCollapse(i)" [attr.data-bs-target]="'#collapse-' + i" aria-expanded="false"
-                    aria-controls="'collapse-' + i">{{ dia | date : 'dd' }}</button>
-                  </td>
-                </ng-container>
-                <td class="table-collapse w-100">
-                  <div class="collapse table-collapse w-100" [id]="'collapse-' + i" [class.show]="mostrarCollapse[i]">
-                    <div class="card card-body w-100">
-                      Algum conteúdo aqui para o dia
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
-
-
-
     </div>
-
 </div>
