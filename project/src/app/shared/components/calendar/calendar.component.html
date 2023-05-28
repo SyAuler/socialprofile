@@ -59,7 +59,12 @@
                 </div>
                 <div class="collapse table-collapse w-100" [id]="'collapse-' + i" [class.show]="mostrarCollapse[i]">
                     <div class="card card-body w-100">
-                        Algum conteúdo aqui para o dia {{selectedDate | date: 'shortDate'}}
+                        <div class="d-flex justify-content-end ">
+                            <button mat-raised-button class="w-25">Nova tarefa</button>
+                        </div>
+                        <div>
+                            Algum conteúdo aqui para o dia {{selectedDate | date: 'shortDate'}}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -66,6 +66,7 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CardComponent } from './components/card/card.component';
 
 const MAT_MODULES = [
     A11yModule,
@@ -135,6 +136,7 @@ const MAT_MODULES = [
         DonutChartComponent,
         BarChartComponent,
         CalendarComponent,
+        CardComponent,
     ],
     imports: [
         CommonModule,
@@ -158,6 +160,7 @@ const MAT_MODULES = [
         DonutChartComponent,
         BarChartComponent,
         CalendarComponent,
+        CardComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
