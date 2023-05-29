@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
 
 export interface Item {
     id: number
@@ -6,9 +6,9 @@ export interface Item {
 }
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+    selector: 'app-card',
+    templateUrl: './card.component.html',
+    styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
 
@@ -18,5 +18,26 @@ export class CardComponent {
     @Input() cardTitle: any
 
     showAll: boolean = false;
+    originalHeight!: number;
 
+    constructor() { }
+
+    ngAfterViewInit() {
+        this.originalHeight = this.cardBody.nativeElement.offsetHeight;
+        this.checkShowAllButton();
+    }
+
+    @HostListener('window:resize')
+    onWindowResize() {
+        this.checkShowAllButton();
+    }
+
+    checkShowAllButton() {
+        const currentHeight = this.cardBody.nativeElement.offsetHeight;
+        if (currentHeight > this.originalHeight) {
+            this.showAll = true;
+        } else {
+            this.showAll = false;
+        }
+    }
 }
