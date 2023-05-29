@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 export interface Item {
     id: number
@@ -11,6 +11,8 @@ export interface Item {
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
+
+    @ViewChild('cardBody') cardBody!: ElementRef<HTMLDivElement>;
 
     @Input() cardData: Item[] = [];
     @Input() cardTitle: any
