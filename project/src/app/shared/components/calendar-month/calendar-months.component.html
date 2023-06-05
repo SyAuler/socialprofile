@@ -48,7 +48,7 @@
                 <div class="w-100 content-body" *ngFor="let dia of semana; let indexDay = index"
                     [class.calendario-quebrar-linha]="dia.isFirstDayOfWeek">
                     <div class="current-month"
-                        [class.selected]="selectedItem?.semana === i && selectedItem?.dia === indexDay"
+                        [class.selected]="selectedItem && selectedItem.semana === i && selectedItem.dia === indexDay"
                         *ngIf="dataAtual.getMonth() === dia.getMonth()"
                         (click)="abrirCollapse(i, indexDay); selecionarDia(i, indexDay); fecharCollapse(i, indexDay)">
                         {{ dia | date : 'dd' }}

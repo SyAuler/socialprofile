@@ -63,7 +63,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TableComponent } from './components/table/table.component';
 import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
+import { CalendarMonthsComponent } from './components/calendar-month/calendar-months.component';
+import { CalendarWeeksComponent } from './components/calendar-weeks/calendar-weeks.component';
+import { CalendarDaysComponent } from './components/calendar-days/calendar-days.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CardComponent } from './components/card/card.component';
@@ -135,7 +137,9 @@ const MAT_MODULES = [
         TableComponent,
         DonutChartComponent,
         BarChartComponent,
-        CalendarComponent,
+        CalendarMonthsComponent,
+        CalendarWeeksComponent,
+        CalendarDaysComponent,
         CardComponent,
     ],
     imports: [
@@ -159,7 +163,9 @@ const MAT_MODULES = [
         TableComponent,
         DonutChartComponent,
         BarChartComponent,
-        CalendarComponent,
+        CalendarMonthsComponent,
+        CalendarWeeksComponent,
+        CalendarDaysComponent,
         CardComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

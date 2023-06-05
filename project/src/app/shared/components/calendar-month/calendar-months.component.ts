@@ -48,13 +48,13 @@ const colors: Record<string, EventColor> = {
 };
 
 @Component({
-    selector: 'app-calendar',
-    templateUrl: './calendar.component.html',
-    styleUrls: ['./calendar.component.scss'],
+    selector: 'app-calendar-months',
+    templateUrl: './calendar-months.component.html',
+    styleUrls: ['./calendar-months.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
 })
-export class CalendarComponent implements OnInit {
+export class CalendarMonthsComponent implements OnInit {
 
     @ViewChild('semana', { static: false }) semanaRef!: ElementRef;
 

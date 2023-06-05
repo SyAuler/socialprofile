@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
 
 export interface Item {
     id: number
@@ -19,8 +19,12 @@ export class CardComponent {
 
     showAll: boolean = false;
     originalHeight!: number;
+    shouldShowButton!: boolean;
+    scrollHeight!: boolean;
 
-    constructor() { }
+    constructor(
+        private cdr: ChangeDetectorRef,
+    ) { }
 
     ngAfterViewInit() {
         this.originalHeight = this.cardBody.nativeElement.offsetHeight;
@@ -34,6 +38,10 @@ export class CardComponent {
 
     checkShowAllButton() {
         const currentHeight = this.cardBody.nativeElement.offsetHeight;
+        this.shouldShowButton = this.cardData && this.cardData.length > 3;
+        this.scrollHeight = this.cardBody.nativeElement.scrollHeight > 153;
+        this.cdr.detectChanges();
+
         if (currentHeight > this.originalHeight) {
             this.showAll = true;
         } else {

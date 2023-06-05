@@ -1,4 +1,10 @@
 <div>
+    <div>
+        <app-calendar-weeks></app-calendar-weeks>
+    </div>
+    <div>
+        Anotações
+    </div>
     <div class="row">
         <div class="d-flex">
             <div class="col-6 p-2">
@@ -18,19 +24,11 @@
         </div>
         <div class="d-flex">
             <div class="col-6 p-2">
-                <app-card [cardData]="data"
-                    [cardTitle]="'O que precisa acontecer'"></app-card>
+                <app-card [cardData]="data" [cardTitle]="'O que precisa acontecer'"></app-card>
             </div>
             <div class="col-6 p-2">
-                <app-card [cardData]="teste1"
-                    [cardTitle]="'A evidência que minha semana foi um sucesso é'"></app-card>
+                <app-card [cardData]="teste1" [cardTitle]="'A evidência que minha semana foi um sucesso é'"></app-card>
             </div>
         </div>
-    </div>
-    <div>
-        01/05 até 07/05
-    </div>
-    <div>
-        Anotações
     </div>
 </div>

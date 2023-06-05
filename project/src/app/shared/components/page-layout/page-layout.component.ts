@@ -21,27 +21,27 @@ export class PageLayoutComponent {
                 svg_icon: 'home',
                 colored: true,
             },
-            {
+            /* {
                 name: `Dashboard`,
                 path: 'dashboard',
                 icon: 'dashboard',
                 svg_icon: 'neo_icon',
                 colored: true,
-            },
-            {
+            }, */
+            /* {
                 name: `Pokemon`,
                 path: 'pokemon',
                 icon: 'sports_baseball',
                 svg_icon: 'neo_icon',
                 colored: true,
-            },
-            {
+            }, */
+            /* {
                 name: `Marvel`,
                 path: 'marvel',
                 icon: 'sports_martial_arts',
                 svg_icon: 'neo_icon',
                 colored: true,
-            },
+            }, */
             {
                 dropdown: `Planner`,
                 path: 'planner',

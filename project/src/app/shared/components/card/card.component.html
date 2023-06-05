@@ -13,7 +13,7 @@
         </ul>
     </div>
     <div class="card-btn">
-        <a class="card-btn-action d-flex justify-content-center" *ngIf="cardData && cardData.length > 3 || cardBody.scrollHeight > 152"
+        <a class="card-btn-action d-flex justify-content-center" *ngIf="shouldShowButton || scrollHeight"
             (click)="showAll = !showAll">
             <span *ngIf="showAll">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
