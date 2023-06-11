@@ -1,4 +1,4 @@
-<div>
+<div class="week-planner">
     <div class="row mx-2 my-4">
         <h3 class="week-planner-title"> {{ currentMonth | date: 'LLLL'}} de {{ currentMonth | date: 'YYYY'}}</h3>
         <hr>
@@ -21,20 +21,35 @@
                     <div class="tab-pane fade" [class.show]="aba.ativa">
                     <div class="d-flex">
                       <div class="card card-body m-2" *ngFor="let day of dias; let index = index">
-                        <div class="d-flex align-items-center" [ngClass]="day.periodo">
+                        <div class="d-flex justify-content-center align-items-center mb-3" [ngClass]="day.periodo">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-moon" viewBox="0 0 16 16">
                                 <path *ngFor="let path of day.svg" [attr.d]="path.path" [attr.fill]="path.color"/>
                             </svg>
                           <h3 class="period">{{ day.periodo }}</h3>
                         </div>
-                        <div>
-                          {{ day.tarefas }} {{ aba.data.getDate() }}
-                        </div>
+                        <ng-container *ngFor="let task of tasks">
+                            <div class="my-1">
+                                <li class="d-flex align-items-center my-2">
+                                    <div class="mx-2">
+                                        <img *ngIf="task.slug === 'open'" src="../../../../assets/icon/open.svg" alt="" width="25px">
+                                        <img *ngIf="task.slug === 'done'" src="../../../../assets/icon/done.svg" alt="" width="25px">
+                                        <img *ngIf="task.slug === 'canceled'" src="../../../../assets/icon/canceled.svg" alt="" width="25px">
+                                        <img *ngIf="task.slug === 'on-going'" src="../../../../assets/icon/ongoing.svg" alt="" width="25px">
+                                        <img *ngIf="task.slug === 'postpone'" src="../../../../assets/icon/postpone.svg" alt="" width="25px">
+                                    </div>
+                                    <div class="task">
+                                        <div class="task-title">{{ task.name }} </div>
+                                        <div class="task-status" [ngClass]="'task-' + task.slug">{{ task.status }}</div>                                        
+                                    </div>
+                                </li>
+                            </div>
+                        </ng-container>
+                        {{ aba.data.getDate() }}
                       </div>
                     </div>
                   </div>
                 </ng-container>
-              </ng-container>
+            </ng-container>
         </div>
     </div>
 

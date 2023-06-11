@@ -53,6 +53,69 @@ export class CalendarWeeksComponent implements OnInit {
         },
     ];
 
+    status = [
+        {
+            id: 0,
+            slug: 'open',
+            name: 'Aberto',
+        },
+        {
+            id: 1,
+            slug: 'on-going',
+            name: 'Em Andamento',
+        },
+        {
+            id: 2,
+            slug: 'done',
+            name: 'Concluído',
+        },
+        {
+            id: 3,
+            slug: 'canceled',
+            name: 'Cancelado',
+        },
+        {
+            id: 4,
+            slug: 'postpone',
+            name: 'Adiado',
+        },
+    ]
+
+    tasks: any = [
+        {
+            id: '1',
+            name: 'Tarefa 1 tarefa teste 1',
+            status: this.status[0].name,
+            slug: this.status[0].slug,
+        },
+        {
+            id: '2',
+            name: 'Tarefa 2 teste 2 tarefa teste lalalala',
+            status: this.status[1].name,
+            slug: this.status[1].slug,
+        },
+        {
+            id: '3',
+            name: 'Tarefa 3 abs teste lalal allaa',
+            status: this.status[2].name,
+            slug: this.status[2].slug,
+        },
+        {
+            id: '4',
+            name: 'Tarefa 4',
+            status: this.status[3].name,
+            slug: this.status[3].slug,
+        },
+        {
+            id: '5',
+            name: 'Tarefa 5',
+            status: this.status[4].name,
+            slug: this.status[4].slug,
+        },
+    ]
+
+    
+
     constructor(
         @Inject(LOCALE_ID) private locale: string,
         private sanitizer: DomSanitizer,

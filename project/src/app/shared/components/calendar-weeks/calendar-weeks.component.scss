@@ -2,26 +2,25 @@
 
 .nav-tabs {
     margin-bottom: 1rem;
-  }
-  
-  .nav-tabs .nav-item {
-    cursor: pointer;
-  }
-  
-  .tab-content .tab-pane {
-    display: none;
-  }
-  
-  .tab-content .tab-pane.show {
-    display: block;
-  }
-  
-  .nav-tabs .nav-link.selecionada {
-    background-color: #8A70D6;
-    color: $white;
-  }
+}
 
-  
+.nav-tabs .nav-item {
+    cursor: pointer;
+}
+
+.tab-content .tab-pane {
+    display: none;
+}
+
+.tab-content .tab-pane.show {
+    display: block;
+}
+
+.nav-tabs .nav-link.selecionada {
+    background-color: $violet;
+    color: $white;
+}
+
 .week-planner {
 
     &-title {
@@ -35,7 +34,7 @@
 
 svg {
     width: 25px;
-    height: 25px;    
+    height: 25px;
     margin: 0.5em;
 }
 
@@ -44,4 +43,42 @@ svg {
     font-size: 24px;
     display: flex;
     margin: 0;
+}
+
+.task {
+
+    font-family: 'Rajdhani', sans-serif;
+
+    &-title {
+        color: $dark;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    &-status {
+        color: inherit;
+        // color: $violet;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    &-open {
+        color: $open;
+    }
+
+    &-on-going {
+        color: $on-going;
+    }
+
+    &-done {
+        color: $done;
+    }
+
+    &-canceled {
+        color: $canceled
+    }
+
+    &-postpone {
+        color: $postpone;
+    }
 }
