@@ -16,9 +16,14 @@
     display: block;
 }
 
-.nav-tabs .nav-link.selecionada {
+.nav-tabs .nav-link.selected {
     background-color: $violet;
     color: $white;
+}
+
+.nav-prev,
+.nav-next {
+    width: 40px;
 }
 
 .week-planner {
@@ -57,7 +62,6 @@ svg {
 
     &-status {
         color: inherit;
-        // color: $violet;
         font-size: 12px;
         font-weight: 600;
     }

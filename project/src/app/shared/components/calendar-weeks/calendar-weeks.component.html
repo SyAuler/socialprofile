@@ -3,54 +3,80 @@
         <h3 class="week-planner-title"> {{ currentMonth | date: 'LLLL'}} de {{ currentMonth | date: 'YYYY'}}</h3>
         <hr>
     </div>
+
     <div>
-        {{ currentWeek }}
-    </div>
-    <div class="card card-body">
-        <ul class="nav nav-tabs nav-justified">
-            <li class="nav-item" *ngFor="let aba of abas">
-                <a class="nav-link" [class.active]="aba.ativa" [class.selecionada]="aba.selecionada"
-                    (click)="selecionarAba(aba)">
-                    {{ aba.data | date : 'ccc dd/MM' }}
-                </a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <ng-container *ngFor="let aba of abas">
-                <ng-container *ngIf="aba.ativa">
-                    <div class="tab-pane fade" [class.show]="aba.ativa">
-                    <div class="d-flex">
-                      <div class="card card-body m-2" *ngFor="let day of dias; let index = index">
-                        <div class="d-flex justify-content-center align-items-center mb-3" [ngClass]="day.periodo">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-moon" viewBox="0 0 16 16">
-                                <path *ngFor="let path of day.svg" [attr.d]="path.path" [attr.fill]="path.color"/>
-                            </svg>
-                          <h3 class="period">{{ day.periodo }}</h3>
-                        </div>
-                        <ng-container *ngFor="let task of tasks">
-                            <div class="my-1">
-                                <li class="d-flex align-items-center my-2">
-                                    <div class="mx-2">
-                                        <img *ngIf="task.slug === 'open'" src="../../../../assets/icon/open.svg" alt="" width="25px">
-                                        <img *ngIf="task.slug === 'done'" src="../../../../assets/icon/done.svg" alt="" width="25px">
-                                        <img *ngIf="task.slug === 'canceled'" src="../../../../assets/icon/canceled.svg" alt="" width="25px">
-                                        <img *ngIf="task.slug === 'on-going'" src="../../../../assets/icon/ongoing.svg" alt="" width="25px">
-                                        <img *ngIf="task.slug === 'postpone'" src="../../../../assets/icon/postpone.svg" alt="" width="25px">
+        <div class="d-flex align-items-center">
+            {{ getFormattedDateRange() }}
+        </div>
+
+        <div class="container">
+            <ul class="nav nav-tabs nav-justified">
+                <div class="nav-prev col-1 d-flex justify-content-center align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-left" viewBox="0 0 16 16" (click)="previousWeek()">
+                        <path fill-rule="evenodd"
+                            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    </svg>
+                </div>
+                <li class="nav-item" *ngFor="let day of daysInSelectedWeek; let i = index">
+                    <a class="nav-link" [class.active]="day.active" [class.selected]="day.selected"
+                        (click)="selectTab(day)">
+                        {{ day.data | date:'EEE dd/MM' }}
+                    </a>
+                </li>
+                <div class="nav-next col-1 d-flex justify-content-center align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-right" viewBox="0 0 16 16" (click)="nextWeek()">
+                        <path fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </div>
+            </ul>
+            <div class="tab-content">
+                <ng-container *ngFor="let tab of daysInSelectedWeek">
+                    <ng-container *ngIf="tab.active">
+                        <div class="tab-pane fade" [class.show]="tab.active">
+                            <div class="d-flex">
+                                <div class="card card-body m-2" *ngFor="let day of dias; let index = index">
+                                    <div class="d-flex justify-content-center align-items-center mb-3"
+                                        [ngClass]="day.periodo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            class="bi bi-moon" viewBox="0 0 16 16">
+                                            <path *ngFor="let path of day.svg" [attr.d]="path.path"
+                                                [attr.fill]="path.color" />
+                                        </svg>
+                                        <h3 class="period">{{ day.periodo }}</h3>
                                     </div>
-                                    <div class="task">
-                                        <div class="task-title">{{ task.name }} </div>
-                                        <div class="task-status" [ngClass]="'task-' + task.slug">{{ task.status }}</div>                                        
-                                    </div>
-                                </li>
+                                    <ng-container *ngFor="let task of tasks">
+                                        <div class="my-1">
+                                            <li class="d-flex align-items-center my-2">
+                                                <div class="mx-2">
+                                                    <img *ngIf="task.slug === 'open'"
+                                                        src="../../../../assets/icon/open.svg" alt="" width="25px">
+                                                    <img *ngIf="task.slug === 'done'"
+                                                        src="../../../../assets/icon/done.svg" alt="" width="25px">
+                                                    <img *ngIf="task.slug === 'canceled'"
+                                                        src="../../../../assets/icon/canceled.svg" alt="" width="25px">
+                                                    <img *ngIf="task.slug === 'on-going'"
+                                                        src="../../../../assets/icon/ongoing.svg" alt="" width="25px">
+                                                    <img *ngIf="task.slug === 'postpone'"
+                                                        src="../../../../assets/icon/postpone.svg" alt="" width="25px">
+                                                </div>
+                                                <div class="task">
+                                                    <div class="task-title">{{ task.name }} </div>
+                                                    <div class="task-status" [ngClass]="'task-' + task.slug">{{
+                                                        task.status }}</div>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </ng-container>
+                                    {{ tab.data.getDate() }}
+                                </div>
                             </div>
-                        </ng-container>
-                        {{ aba.data.getDate() }}
-                      </div>
-                    </div>
-                  </div>
+                        </div>
+                    </ng-container>
                 </ng-container>
-            </ng-container>
+            </div>
         </div>
     </div>
-
 </div>

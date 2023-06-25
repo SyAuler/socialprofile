@@ -1,19 +1,25 @@
-import { formatDate } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import * as moment from 'moment';
+
+interface Day {
+    data: Date;
+    active: boolean;
+    selected: boolean;
+  }
 
 @Component({
     selector: 'app-calendar-weeks',
     templateUrl: './calendar-weeks.component.html',
-    styleUrls: ['./calendar-weeks.component.scss']
+    styleUrls: ['./calendar-weeks.component.scss'],
+    providers: [DatePipe],
 })
 export class CalendarWeeksComponent implements OnInit {
 
-
-    abas!: any[];
-    semanaAtual: Array<any> = [];
+    daysInSelectedWeek: Day[] = [];
     currentMonth = new Date();
-    currentWeek!: string;
+    currentWeek: number = 0;
     activeTab: boolean = false;
 
     dias = [
@@ -114,67 +120,114 @@ export class CalendarWeeksComponent implements OnInit {
         },
     ]
 
-    
 
     constructor(
         @Inject(LOCALE_ID) private locale: string,
         private sanitizer: DomSanitizer,
+        private datePipe: DatePipe,
     ) { }
-
+    
     ngOnInit(): void {
-        this.abas = this.getSemanaAtual();
-        this.currentWeek = this.calcularIntervaloSemana();
-        this.diaAtual();
+        this.currentWeek = this.getWeekNumber(new Date());
+        this.daysInSelectedWeek = this.getDaysInWeek(this.currentWeek);
+        this.daysInSelectedWeek[0].selected = true;
+        this.getCurrentDay();
     }
 
     sanitizeHtml(html: string): SafeHtml {
         return this.sanitizer.bypassSecurityTrustHtml(html);
+    }      
+
+    getFormattedDateRange(): string {
+        const startDate = this.datePipe.transform(this.daysInSelectedWeek[0].data, 'dd/MM', this.locale);
+        const endDate = this.datePipe.transform(this.daysInSelectedWeek[6].data, 'dd/MM', this.locale);
+        return `${startDate} até ${endDate}`;
+    }
+
+    previousWeek() {
+        this.currentWeek--;
+        this.daysInSelectedWeek = this.getDaysInWeek(this.currentWeek);
+        this.getCurrentDay();
+    }
+      
+    nextWeek() {
+        this.currentWeek++;
+        this.daysInSelectedWeek = this.getDaysInWeek(this.currentWeek);
+        this.getCurrentDay();
+    }
+
+    private getDaysInWeek(week: number): Day[] {
+        const firstDayOfYear = new Date(new Date().getFullYear(), 0, 1);
+        const daysToAdd = (week - 1) * 7;
+        const startDate = new Date(firstDayOfYear.getTime() + daysToAdd * 24 * 60 * 60 * 1000);
+      
+        return this.generateDaysInWeek(startDate);
       }
       
-    calcularIntervaloSemana(): string {
-        if (this.abas.length > 0) {
-            const primeiraData = formatDate(this.abas[0].data, 'dd/MM', this.locale);
-            const ultimaData = formatDate(this.abas[this.abas.length - 1].data, 'dd/MM', this.locale);
-            return `${primeiraData} até ${ultimaData}`;
-        }
-        return '';
-    }
-
-    getSemanaAtual(): any[] {
-        const hoje = new Date();
-        const diaSemanaAtual = hoje.getDay();
-
+      private generateDaysInWeek(startDate: Date): Day[] {
+        const daysInWeek: Day[] = [];
+      
         for (let i = 0; i < 7; i++) {
-            const data = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate() - diaSemanaAtual + i);
-            const tarefas: never[] = []; // Aqui você pode buscar as tarefas para cada dia da semana
-
-            this.semanaAtual.push({ data: data, tarefas: tarefas });
+          const currentDate = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000);
+          const day: Day = {
+            data: currentDate,
+            active: this.isSameWeek(currentDate, new Date()),
+            selected: this.isSameDate(currentDate, new Date())
+          };
+          daysInWeek.push(day);
         }
-        this.semanaAtual.map(item => { this.currentWeek = `${item.data} até ${item.data[6]}` })
-        return this.semanaAtual;
+      
+        return daysInWeek;
+      }
+
+    private getWeekNumber(date: Date): number {
+        const onejan = new Date(date.getFullYear(), 0, 1);
+        const millisecondsInWeek = 604800000;
+        return Math.ceil(((date.getTime() - onejan.getTime()) / millisecondsInWeek) + 1);
     }
 
-
-    diaAtual() {
-
-        const dataAtual = new Date();
-        const diaAtual = dataAtual.getDate();
-
-        const abaAtual = this.abas.find(aba => aba.data.getDate() === diaAtual);
-
-        if (abaAtual) {
-            this.selecionarAba(abaAtual);
-        }
+    private isSameWeek(date1: Date, date2: Date): boolean {
+        const oneDay = 24 * 60 * 60 * 1000;
+        const diffDays = Math.round(Math.abs((date1.getTime() - date2.getTime()) / oneDay));
+        return diffDays < 7 && date1.getDay() >= date2.getDay();
+      }
+        
+    private isSameDate(date1: Date, date2: Date): boolean {
+        return date1.getFullYear() === date2.getFullYear() &&
+                date1.getMonth() === date2.getMonth() &&
+                date1.getDate() === date2.getDate();
     }
 
-    selecionarAba(aba: any) {
-        this.abas.forEach(a => {
-            a.ativa = false;
-            a.selecionada = false;
-            this.activeTab = false;
+    private getCurrentDay() {
+        const currentDate = moment();
+        const currentDay = currentDate.date();
+        const currentMonth = currentDate.month();
+      
+        const currentTab = this.daysInSelectedWeek.find(day => {
+          return (
+            day.data.getDate() === currentDay &&
+            day.data.getMonth() === currentMonth
+          );
         });
-        aba.ativa = true;
-        aba.selecionada = true;
+
+        if (currentTab) {
+          this.selectTab(currentTab);
+        } else {
+          const firstDayOfWeek = this.daysInSelectedWeek[0];
+          if (!firstDayOfWeek.selected) {
+            this.selectTab(firstDayOfWeek);
+          }
+        }
+      }
+    
+    selectTab(tab: any) {
+        this.daysInSelectedWeek.forEach(day => {
+            day.active = false;
+            day.selected = false
+            this.activeTab = false
+          });
+        tab.active = true;
+        tab.selected = true;
         this.activeTab = true;
     }
 
