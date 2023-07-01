@@ -5,8 +5,14 @@
     </div>
 
     <div>
-        <div class="d-flex align-items-center">
-            {{ getFormattedDateRange() }}
+        <div class="mb-5">
+            <div class="d-flex justify-content-center">
+                <p>Esse é o progresso da sua semana</p>
+            </div>
+            <div class="d-flex justify-content-center">
+                <app-progress-bar-chart class="w-100"></app-progress-bar-chart>
+            </div>
+            <!-- {{ getFormattedDateRange() }} -->
         </div>
 
         <div class="container">

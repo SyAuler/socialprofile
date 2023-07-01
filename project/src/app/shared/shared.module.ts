@@ -70,6 +70,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CardComponent } from './components/card/card.component';
 import { ColorDirective } from './directives/color.directive';
+import { ProgressBarChartComponent } from './components/progress-bar-chart/progress-bar-chart.component';
 
 const MAT_MODULES = [
     A11yModule,
@@ -143,6 +144,7 @@ const MAT_MODULES = [
         CalendarDaysComponent,
         CardComponent,
         ColorDirective,
+        ProgressBarChartComponent,
     ],
     imports: [
         CommonModule,
@@ -165,6 +167,7 @@ const MAT_MODULES = [
         TableComponent,
         DonutChartComponent,
         BarChartComponent,
+        ProgressBarChartComponent,
         CalendarMonthsComponent,
         CalendarWeeksComponent,
         CalendarDaysComponent,
