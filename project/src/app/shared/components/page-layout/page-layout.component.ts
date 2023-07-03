@@ -64,11 +64,6 @@ export class PageLayoutComponent {
                         path: 'week-planner',
                         icon: 'calendar_view_week',
                     },
-                    {
-                        name: `Diário`,
-                        path: 'daily-planner',
-                        icon: 'calendar_view_day',
-                    },
                 ],
             },
         ]

@@ -1,1 +1,74 @@
-<p>calendar-days works!</p>
+<div class="day-planner">
+    <div class="container">
+        <ul class="nav nav-tabs nav-justified">
+            <div class="nav-prev col-1 d-flex justify-content-center align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chevron-left" viewBox="0 0 16 16" (click)="previousWeek()">
+                    <path fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg>
+            </div>
+            <li class="nav-item" *ngFor="let day of daysInSelectedWeek; let i = index">
+                <a class="nav-link" [class.active]="day.active" [class.selected]="day.selected"
+                    (click)="selectTab(day)">
+                    {{ day.data | date:'EEE dd/MM' }}
+                </a>
+            </li>
+            <div class="nav-next col-1 d-flex justify-content-center align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16" (click)="nextWeek()">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </div>
+        </ul>
+        <div class="tab-content">
+            
+            <app-day-card-header class="row day-planner-content mx-2 py-2 mb-3"></app-day-card-header>
+            
+            <ng-container *ngFor="let tab of daysInSelectedWeek">
+                <ng-container *ngIf="tab.active">
+                    <div class="tab-pane fade" [class.show]="tab.active">
+                        <div class="d-flex">
+                            <div class="card card-body m-2" *ngFor="let day of dias; let index = index">
+                                <div class="d-flex justify-content-center align-items-center mb-3"
+                                    [ngClass]="day.periodo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-moon"
+                                        viewBox="0 0 16 16">
+                                        <path *ngFor="let path of day.svg" [attr.d]="path.path"
+                                            [attr.fill]="path.color" />
+                                    </svg>
+                                    <h3 class="period">{{ day.periodo }}</h3>
+                                </div>
+                                <ng-container *ngFor="let task of tasks">
+                                    <div class="my-1">
+                                        <li class="d-flex align-items-center my-2">
+                                            <div class="mx-2">
+                                                <img *ngIf="task.slug === 'open'" src="../../../../assets/icon/open.svg"
+                                                    alt="" width="25px">
+                                                <img *ngIf="task.slug === 'done'" src="../../../../assets/icon/done.svg"
+                                                    alt="" width="25px">
+                                                <img *ngIf="task.slug === 'canceled'"
+                                                    src="../../../../assets/icon/canceled.svg" alt="" width="25px">
+                                                <img *ngIf="task.slug === 'on-going'"
+                                                    src="../../../../assets/icon/ongoing.svg" alt="" width="25px">
+                                                <img *ngIf="task.slug === 'postpone'"
+                                                    src="../../../../assets/icon/postpone.svg" alt="" width="25px">
+                                            </div>
+                                            <div class="task">
+                                                <div class="task-title">{{ task.name }} </div>
+                                                <div class="task-status" [ngClass]="'task-' + task.slug">{{
+                                                    task.status }}</div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                </ng-container>
+                                {{ tab.data.getDate() }}
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>

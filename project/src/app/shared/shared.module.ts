@@ -61,7 +61,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactComponent } from './components/contact/contact.component';
 import { TableComponent } from './components/table/table.component';
-import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
+import { ArcChartComponent } from './components/arc-chart/arc-chart.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { CalendarMonthsComponent } from './components/calendar-month/calendar-months.component';
 import { CalendarWeeksComponent } from './components/calendar-weeks/calendar-weeks.component';
@@ -71,6 +71,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CardComponent } from './components/card/card.component';
 import { ColorDirective } from './directives/color.directive';
 import { ProgressBarChartComponent } from './components/progress-bar-chart/progress-bar-chart.component';
+import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
+import { DayCardHeaderComponent } from './components/day-card-header/day-card-header.component';
+
 
 const MAT_MODULES = [
     A11yModule,
@@ -137,7 +140,7 @@ const MAT_MODULES = [
         SkillsComponent,
         ContactComponent,
         TableComponent,
-        DonutChartComponent,
+        ArcChartComponent,
         BarChartComponent,
         CalendarMonthsComponent,
         CalendarWeeksComponent,
@@ -145,6 +148,8 @@ const MAT_MODULES = [
         CardComponent,
         ColorDirective,
         ProgressBarChartComponent,
+        DonutChartComponent,
+        DayCardHeaderComponent,
     ],
     imports: [
         CommonModule,
@@ -165,13 +170,15 @@ const MAT_MODULES = [
         SkillsComponent,
         ContactComponent,
         TableComponent,
-        DonutChartComponent,
+        ArcChartComponent,
         BarChartComponent,
         ProgressBarChartComponent,
         CalendarMonthsComponent,
         CalendarWeeksComponent,
         CalendarDaysComponent,
         CardComponent,
+        DonutChartComponent,
+        DayCardHeaderComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

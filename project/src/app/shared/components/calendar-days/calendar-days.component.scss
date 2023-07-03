@@ -1,0 +1,127 @@
+@use "../../../../assets/styles/abstracts/variables.scss" as *;
+
+.nav-tabs {
+    margin-bottom: 1rem;
+}
+
+.nav-tabs .nav-item {
+    cursor: pointer;
+}
+
+.tab-content .tab-pane {
+    display: none;
+}
+
+.tab-content .tab-pane.show {
+    display: block;
+}
+
+.nav-tabs .nav-link.selected {
+    background-color: $violet;
+    color: $white;
+}
+
+.nav-prev,
+.nav-next {
+    width: 40px;
+}
+
+.day-planner {
+
+    &-content {
+        background-color: $violet-6;
+    }
+
+    &-title {
+        text-align: end;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 500;
+        font-size: 2em;
+        color: $violet;
+    }
+
+    &-chart {
+        height: 10em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-big-win {
+        border-radius: 0.75em;
+        height: 9em;
+
+        &-title {
+            background-color: $violet-2;
+            color: $white;
+        }
+
+        &-text {
+            display: flex;
+            align-items: center;
+            height: 5em;
+        }
+    }
+
+    &-priority {
+        background-color: $violet;
+        color: $white;
+        opacity: 0.3;
+    }
+
+    &-habit {
+        background-color: $violet;
+        color: $white;
+        opacity: 0.3;
+    }
+}
+
+svg {
+    width: 25px;
+    height: 25px;
+    margin: 0.5em;
+}
+
+.period {
+    align-items: center;
+    font-size: 24px;
+    display: flex;
+    margin: 0;
+}
+
+.task {
+
+    font-family: 'Rajdhani', sans-serif;
+
+    &-title {
+        color: $dark;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    &-status {
+        color: inherit;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    &-open {
+        color: $open;
+    }
+
+    &-on-going {
+        color: $on-going;
+    }
+
+    &-done {
+        color: $done;
+    }
+
+    &-canceled {
+        color: $canceled
+    }
+
+    &-postpone {
+        color: $postpone;
+    }
+}
