@@ -1,5 +1,5 @@
 <mat-sidenav-container class="app-sidebar" autosize>
-    <mat-sidenav #sidenav [mode]="'side'" opened="true">
+    <mat-sidenav #sidenav [mode]="'side'" [opened]="opened">
         <div class="sidebar-header d-flex justify-content-center align-items-center">
             <span *ngIf="!isExpanded">Projetos</span>
             <span *ngIf="isExpanded">SA</span>
@@ -52,7 +52,7 @@
         </div>
     </mat-sidenav>
 </mat-sidenav-container>
-<div (click)="toggleCollapse()">
+<div mat-sidenav-toggle (click)="toggleCollapse()">
     <a mat-mini-fab class="sidebar-collapse-container">
         <mat-icon inline="true" class="sidebar-collapse-icon">
             {{ collapseIcon }}

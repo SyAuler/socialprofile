@@ -1,5 +1,4 @@
-import { Router } from '@angular/router';
-import { Component,	OnInit,	Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 interface IMenuItem {
     name?: string;
@@ -20,17 +19,27 @@ export class SidebarComponent implements OnInit {
 
     @Input() links: IMenuItem[] = []
     @Input() theme!: string;
-    
+
     collapseIcon: string = 'chevron_left';
-    isExpanded = false;
+    isExpanded: boolean = false;
     showSubmenu: boolean = false;
-    
-    constructor() {	}
+    opened: boolean = true;
+
+    constructor() { }
 
     ngOnInit() {
     }
 
     toggleCollapse(): boolean {
+        const sidebar = document.querySelector('.app-sidebar') as HTMLElement;
+        if (sidebar) {
+            if (this.isExpanded) {
+                sidebar.classList.remove('collapsed');
+            } else {
+                sidebar.classList.add('collapsed');
+            }
+        }
+
         this.collapseIcon = this.isExpanded ? 'chevron_left' : 'chevron_right';
         return this.isExpanded = !this.isExpanded;
     }
