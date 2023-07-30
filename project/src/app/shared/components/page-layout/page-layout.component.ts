@@ -16,7 +16,7 @@ export class PageLayoutComponent {
         this.links = [
             {
                 name: `Página Inicial`,
-                path: 'home',
+                path: '',
                 icon: 'home',
                 svg_icon: 'home',
                 colored: true,

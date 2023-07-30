@@ -14,7 +14,7 @@ const routes: Routes = [
                 pathMatch: 'full',
             },
             {
-                path: 'home',
+                path: '',
                 loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
             },
         ]
@@ -34,18 +34,6 @@ const routes: Routes = [
             {
                 path: 'marvel',
                 loadChildren: () => import('./marvel/marvel.module').then(m => m.MarvelModule)
-            },
-            {
-                path: 'planner',
-                loadChildren: () => import('./planner/planner.module').then(m => m.PlannerModule)
-            },
-            {
-                path: 'month-planner',
-                loadChildren: () => import('./month-planner/month-planner.module').then(m => m.MonthPlannerModule)
-            },
-            {
-                path: 'week-planner',
-                loadChildren: () => import('./week-planner/week-planner.module').then(m => m.WeekPlannerModule)
             },
         ]
     },
