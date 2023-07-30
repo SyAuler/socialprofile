@@ -1,0 +1,102 @@
+
+.pokemon-image {
+    width: 6em;
+}
+
+.pokemon-title {
+    text-transform: uppercase;
+}
+
+ol {
+    display: grid;
+}
+
+.normal {
+    background-color: rgb(166, 168, 119, 0.5);
+}
+
+.grass {
+    background-color: rgb(119, 200, 80, 0.5);
+}
+
+.fire {
+    background-color: rgb(238, 127, 48, 0.5);
+}
+
+.water {
+    background-color: rgb(103, 143, 238, 0.5);
+}
+
+.electric {
+    background-color: rgb(247, 207, 46, 0.5);
+}
+
+.ice {
+    background-color: rgb(152, 213, 215, 0.5);
+}
+
+.ground {
+    background-color: rgb(223, 191, 105, 0.5);
+}
+
+.flying {
+    background-color: rgb(169, 143, 240, 0.5);
+}
+
+.poison {
+    background-color: rgb(160, 64, 160, 0.5);
+}
+
+.fighting {
+    background-color: rgb(191, 48, 41, 0.5);
+}
+
+.psychic {
+    background-color: rgb(246, 86, 135, 0.5);
+}
+
+.dark {
+    background-color: rgb(114, 88, 71, 0.5);
+}
+
+.rock {
+    background-color: rgb(184, 161, 55, 0.5);
+}
+
+.bug {
+    background-color: rgb(168, 183, 32, 0.5);
+}
+
+.ghost {
+    background-color: rgb(110, 88, 150, 0.5);
+}
+
+.steel {
+    background-color: rgb(185, 183, 207, 0.5);
+}
+
+.dragon {
+    background-color: rgb(111, 56, 246, 0.5);
+}
+
+.fairy {
+    background-color: rgb(249, 174, 199, 0.5);
+}
+
+@media screen and (min-width: 380px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

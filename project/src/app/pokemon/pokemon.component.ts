@@ -15,72 +15,64 @@ export interface UserData {
 })
 export class PokemonComponent implements OnInit {
 
-    @ViewChild('paginator', { static: true }) paginator!: MatPaginator;
-    @ViewChild(MatSort, { static: false }) sort!: MatSort;
-
-    pokemonList: any;
-    berryList: any;
-    dataSource = new MatTableDataSource();
-    displayedColumns: string[] = ['name', 'url', 'actions'];
+    pokemonList: any = document.getElementById('pokemonList');
+    mostrarCollapse: any = [];
+    selectedItem!: { semana: number | null };
     listLoading: boolean = false;
 
-    pageSize = 150;
-    pageIndex = 0;
+    pageSize = 12;
+    pageIndex = 1;
     pageLength: any;
-    pageSizeOptions: Array<number> = [15, 30, 45, 60];
 
     constructor(
         private pokemonService: PokemonService,
     ) { }
 
+
     ngOnInit() {
         this.getPokemon();
     }
 
-    private initDataSource(data: Array<any>) {
-        this.dataSource = null as any;
-        this.dataSource = new MatTableDataSource(data);
-        this.dataSource.sort = this.sort;
+    onPageChange(pageNumber: number) {
+        this.pageIndex = pageNumber;
+        this.getPokemon();
     }
 
-    setPage(event?: any) {
-        this.pageSize = event.pageSize;
-        this.pageLength = event.length;
+    getPageNumbers(): number[] {
+        const totalPages = this.getTotalPages();
+        return Array.from({ length: totalPages }, (_, index) => index + 1);
+    }
+
+    getTotalPages(): number {
+        return Math.ceil(this.pokemonList?.length / this.pageSize);
+    }
+
+    getPokemon() {
         const params = {
-            offset: this.paginator.pageIndex * this.paginator.pageSize,
+            offset: (this.pageIndex - 1) * this.pageSize,
             limit: this.pageSize,
         };
-        this.getPokemon(params);
-    }
-
-    getPokemon(value?:any) {
         this.listLoading = true;
-        const params = {
-            offset: this.paginator.pageIndex * this.paginator.pageSize,
-            limit: this.paginator.pageSize ?? this.pageSize,
-            ...value
-        }
-
-        this.pokemonService.getPokemon(params).subscribe(res => {
-            this.pokemonList = res.results;
-            this.pageLength = res.count;
-            this.initDataSource(this.pokemonList);
-            this.listLoading = false;
-        })
+        this.pokemonService.getPokemonWithDetail(params).subscribe(
+            (res) => {
+                this.pokemonList = res;
+                this.listLoading = false;
+            },
+            (error) => {
+                console.error('Error fetching Pokémon:', error);
+                this.listLoading = false;
+            }
+        );
     }
 
-    getBerry() {
-        const params = {
-            id: 10,
-            name: 'cheri',
+    abrirCollapse(semana: number) {
+        const selectedItem = { semana };
+        if (this.selectedItem?.semana === semana) {
+            this.mostrarCollapse[semana] = !this.mostrarCollapse[semana];
+        } else {
+            this.mostrarCollapse.fill(false);
+            this.mostrarCollapse[semana] = true;
+            this.selectedItem = selectedItem;
         }
-        this.pokemonService.getBerry(params.id).subscribe(res => {
-            this.berryList = res;
-            console.log('berryList', this.berryList)
-        })
-    }
-
-    applyFilter(event?: any) {
-
     }
 }
