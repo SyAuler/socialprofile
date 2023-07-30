@@ -1,19 +1,54 @@
 @use "./assets/styles/abstracts/variables" as *;
 
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+$primary: $violet;
+$secondary: $gray-300;
+$success: $green;
+$danger: $red;
+$warning: $orange;
+$info: $blue;
+$light: $gray-100;
+$dark: $dark;
+
+:root {
+    --primary: $violet;
+    --secondary: $gray-300;
+    --success: $green;
+    --warning: $orange;
+    --info: $blue;
+    --danger: $red;
+    --light: $gray-100;
+    --dark: $dark;
+}
+
+html {
+    height: 100%;
+}
 
 .mat-theme-loaded-marker {
     display: none;
 }
 
-:root { 
-    --primary: $primary;
-    --success: $success;
-    --danger: $danger;
+input[type=checkbox] {
+    border: 2px solid #ccc;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
 }
 
-html {
-    height: 100%;
+input[type=checkbox]:checked {
+    background-color: $violet;
+}
+
+.default-card {
+    margin: 1.5em;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

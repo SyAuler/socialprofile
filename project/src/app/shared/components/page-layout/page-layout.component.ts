@@ -16,18 +16,18 @@ export class PageLayoutComponent {
         this.links = [
             {
                 name: `Página Inicial`,
-                path: 'home',
+                path: '',
                 icon: 'home',
                 svg_icon: 'home',
                 colored: true,
             },
-            {
+            /* {
                 name: `Dashboard`,
                 path: 'dashboard',
                 icon: 'dashboard',
                 svg_icon: 'neo_icon',
                 colored: true,
-            },
+            }, */
             {
                 name: `Pokemon`,
                 path: 'pokemon',
@@ -42,6 +42,7 @@ export class PageLayoutComponent {
                 svg_icon: 'neo_icon',
                 colored: true,
             },
+            
         ]
     }
 }

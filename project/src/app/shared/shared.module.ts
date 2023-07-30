@@ -53,12 +53,16 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
-import { ShowIfBreakDirective } from './directives/show-if-break.directive';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ContactComponent } from './components/contact/contact.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CardComponent } from './components/card/card.component';
+
 
 const MAT_MODULES = [
     A11yModule,
@@ -118,25 +122,31 @@ const MAT_MODULES = [
 @NgModule({
     declarations: [
         ButtonComponent,
-        ShowIfBreakDirective,
         CarouselComponent,
         BannerComponent,
         AboutMeComponent,
         SkillsComponent,
+        ContactComponent,
+        CardComponent,
     ],
     imports: [
         CommonModule,
         ...MAT_MODULES,
         RouterModule,
         FontAwesomeModule,
+        CalendarModule.forRoot({
+            provide: DateAdapter,
+            useFactory: adapterFactory,
+          }),
     ],
     exports: [
         ButtonComponent,
-        ShowIfBreakDirective,
         CarouselComponent,
         BannerComponent,
         AboutMeComponent,
         SkillsComponent,
+        ContactComponent,
+        CardComponent,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
