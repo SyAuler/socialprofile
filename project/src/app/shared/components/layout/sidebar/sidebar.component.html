@@ -1,8 +1,12 @@
 <mat-sidenav-container class="app-sidebar" autosize>
     <mat-sidenav #sidenav [mode]="'side'" [opened]="opened">
         <div class="sidebar-header d-flex justify-content-center align-items-center">
-            <span *ngIf="!isExpanded">Projetos</span>
-            <span *ngIf="isExpanded">SA</span>
+            <a class="app-sidebar-title" routerLink="/dashboard" *ngIf="!isExpanded">
+                <span>Projetos</span>
+            </a>
+            <a class="app-sidebar-title" routerLink="/dashboard" *ngIf="isExpanded">
+                <span>SA</span>
+            </a>
         </div>
         <div class="sidebar-menu-container">
             <mat-nav-list class="sidebar-list">
