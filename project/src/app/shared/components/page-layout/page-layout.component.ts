@@ -28,44 +28,21 @@ export class PageLayoutComponent {
                 svg_icon: 'neo_icon',
                 colored: true,
             }, */
-            /* {
+            {
                 name: `Pokemon`,
                 path: 'pokemon',
                 icon: 'sports_baseball',
                 svg_icon: 'neo_icon',
                 colored: true,
-            }, */
-            /* {
+            },
+            {
                 name: `Marvel`,
                 path: 'marvel',
                 icon: 'sports_martial_arts',
                 svg_icon: 'neo_icon',
                 colored: true,
-            }, */
-            {
-                dropdown: `Planner`,
-                path: 'planner',
-                icon: 'calendar_month',
-                svg_icon: 'neo_icon',
-                colored: true,
-                items: [
-                    {
-                        name: `Dashboard`,
-                        path: 'planner',
-                        icon: 'event_note',
-                    },
-                    {
-                        name: `Mensal`,
-                        path: 'month-planner',
-                        icon: 'calendar_view_month',
-                    },
-                    {
-                        name: `Semanal`,
-                        path: 'week-planner',
-                        icon: 'calendar_view_week',
-                    },
-                ],
             },
+            
         ]
     }
 }

@@ -29,7 +29,6 @@ import { HomeComponent } from './home/home.component';
 
 import { PokeApiService } from './core/services/poke-api.service';
 import { MarvelApiService } from './core/services/marvel-api.service';
-import { PlannerService } from './planner/planner.service';
 
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
@@ -69,7 +68,6 @@ const MAT_MODULES = [
     providers: [
         PokeApiService,
         MarvelApiService,
-        PlannerService,
         { 
             provide: LOCALE_ID, 
             useValue: 'pt-br' 
