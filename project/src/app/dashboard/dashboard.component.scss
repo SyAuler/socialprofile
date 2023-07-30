@@ -1,0 +1,26 @@
+@use "../../../src/assets/styles/abstracts/variables.scss" as *;
+
+
+.dashboard-presentation {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 2.5em;
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-presentation h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: $violet;
+    margin-bottom: 1.75em;
+}
+
+.dashboard-presentation p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
