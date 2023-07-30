@@ -1,14 +1,24 @@
 @use "../../../../../assets/styles/abstracts/variables.scss" as *;
 
 .app-sidebar {
-    width: 248px;
+    max-width: 248px;
     background: $violet-5;
     box-shadow: 4px 2px 4px 0px rgba(0, 0, 0, 0.25);
     float: left;
     min-height: 100%;
     position: relative;
     z-index: 1;
-    transition: width .1s;
+    transition: max-width .1s;
+
+    &-title {
+        text-decoration: none;
+        color: $white;
+        cursor: pointer;
+    }
+    
+    .collapsed {
+        max-width: 64px;
+    }
 
     .sidebar {
         &-header {
